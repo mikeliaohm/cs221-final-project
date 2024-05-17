@@ -1,0 +1,3 @@
+[submodule "src/agent/python-dds"]
+	path = src/agent/python-dds
+	url = https://github.com/Afwas/python-dds.git

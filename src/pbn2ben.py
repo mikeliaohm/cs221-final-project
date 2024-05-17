@@ -14,12 +14,15 @@ def load(fin):
     auction_lines = []
     inside_auction_section = False
     dealer, vulnerable = None, None
+    declarer, contract = None, None
     for line in fin:
         if line.startswith("% PBN") or line == "\n":
             if dealer != None:
                 board = {
                     'deal': ' '.join(hands_nesw),      
-                    'auction': dealer + " " + vulnerable + " " + ' '.join(auction_lines)
+                    'auction': dealer + " " + vulnerable + " " + ' '.join(auction_lines),
+                    'declarer': declarer,
+                    'contract': contract
                 }
                 boards.append(board)            
                 auction_lines = []
@@ -29,6 +32,14 @@ def load(fin):
         if line.startswith('[Vulnerable'):
             vuln_str = extract_value(line)
             vulnerable = {'NS': 'N-S', 'EW': 'E-W', 'All': 'Both'}.get(vuln_str, vuln_str)
+        if line.startswith('[Declarer'):
+            start = line.find('"') + 1
+            end = line.find('"', start)
+            declarer = line[start: end]
+        if line.startswith('[Contract'):
+            start = line.find('"') + 1
+            end = line.find('"', start)
+            contract = line[start: end]
         if line.startswith('[Deal '):
             hands_pbn = extract_value(line)
             [seat, hands] = hands_pbn.split(':')
@@ -56,7 +67,9 @@ def load(fin):
     if dealer != None:
         board = {
             'deal': ' '.join(hands_nesw),      
-            'auction': dealer + " " + vulnerable + " " + ' '.join(auction_lines)
+            'auction': dealer + " " + vulnerable + " " + ' '.join(auction_lines),
+            'declarer': declarer,
+            'contract': contract
         }
         boards.append(board)      
     return boards

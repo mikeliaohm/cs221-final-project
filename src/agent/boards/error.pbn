@@ -1,0 +1,37 @@
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "4"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:J864.AQJ987.KQ.7 A2.4.86432.A9654 T95.K52.T95.KQJ3 KQ73.T63.AJ7.T82"]
+[Declarer "W"]
+[Contract "4HX"]
+[Result "8"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 500"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+1H Pass 2H Pass
+3D Pass 4H Pass
+Pass X Pass Pass
+Pass
+[Play "N"]
+SA S5 S3 S6
+S2 S9 SQ S4
+D8 D5 DA DQ
+C4 ST SK S8
+D2 D9 D7 DK
+H4 H2 H3 HA
+C5 H5 H6 HQ
+D3 HK HT H9
+CA CK CT C7
+*

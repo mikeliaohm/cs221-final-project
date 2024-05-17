@@ -1,0 +1,40 @@
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "3"]
+[West "Andersen M"]
+[North "Tuszynski P"]
+[East "ChristiansenS"]
+[South "Jassem K"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:Q9652.754.T4.862 J.KQJ96.AKQ5.J94 AK8.A2.962.KQT73 T743.T83.J873.A5"]
+[Declarer "S"]
+[Contract "3S"]
+[Result "7"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+Pass 1H 1NT 2D
+Pass 2H Pass Pass
+2S 3D 3S Pass
+Pass Pass
+[Play "W"]
+DA D2 D8 D4
+DK D6 D3 DT
+HK HA H8 H5
+HJ H2 H3 H4
+DQ D9 D7 S2
+C9 CT C5 C6
+SJ SA S3 S5
+C4 CK CA C2
+H6 SK HT H7
+D5 S8 S4 SQ
+CJ CQ S7 C8
+H9 C3 ST S6
+*

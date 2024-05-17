@@ -1,0 +1,39 @@
+[Event "#"]
+[Site "#"]
+[Date "1999.06.13"]
+[Board "7"]
+[West "Duboin G"]
+[North "Feichtinger K"]
+[East "Bocchi N"]
+[South "Terraneo F"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:KT7.J87.QT86.Q73 AJ92.A96.J4.J862 643.QT432.532.T9 Q85.K5.AK97.AK54"]
+[Declarer "E"]
+[Contract "3NT"]
+[Result "9"]
+[HomeTeam "Austria"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -600"]
+[Table "17"]
+[VisitTeam "Italy"]
+[Auction "S"]
+Pass Pass Pass 1D
+Pass 1H Pass 1NT
+Pass 2H Pass 2NT
+Pass 3NT Pass Pass
+Pass
+[Play "S"]
+H8 H6 HQ H5
+H7 H9 H2 HK
+C7 C2 C9 CA
+C3 C6 CT CK
+CQ C8 D3 C4
+HJ HA H3 D7
+D6 CJ S3 C5
+D8 DJ D2 DA
+S7 SJ S4 S5
+ST SA S6 S8
+- D4 - -
+*

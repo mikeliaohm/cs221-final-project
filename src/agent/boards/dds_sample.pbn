@@ -1,0 +1,10 @@
+% PBN 1.0
+% EXPORT
+%
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:QJ6.K652.J85.T98 873.J97.AT764.Q4 K5.T83.KQ9.A7652 AT942.AQ4.32.KJ3"]
+[Declarer "W"]
+[Contract "5S"]
+[Auction "W"]
+Pass      Pass    Pass    5S

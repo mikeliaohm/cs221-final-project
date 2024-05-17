@@ -24,6 +24,7 @@ def hand_to_str(hand):
 
 
 def encode_card(card_str):
+    # TODO: refactor the function to capture invalid card input
     suit_i = 'SHDC'.index(card_str[0])
     card_i = 'AKQJT98765432'.index(card_str[1])
     return suit_i*13 + card_i

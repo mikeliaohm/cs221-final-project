@@ -160,7 +160,7 @@ class HumanLeadSocket:
 
 class HumanCardPlayer:
 
-    def __init__(self, models, player_i, hand_str, public_hand_str, contract, is_decl_vuln, quality):
+    def __init__(self, models, player_i, hand_str, public_hand_str, contract, is_decl_vuln, quality = None):    # adds quality default None
         self.player_models = models.player_models
         self.model = models.player_models[player_i]
         self.player_i = player_i
@@ -211,6 +211,7 @@ class HumanCardPlayer:
         self.public52[card52] -= 1
 
     async def get_card_input(self):
+        # TODO: print out the current hand player holds before getting input from user
         card = input('your play: ').strip().upper()
         return deck52.encode_card(card)
 

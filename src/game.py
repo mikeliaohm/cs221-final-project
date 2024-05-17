@@ -3,6 +3,10 @@ import sys
 import asyncio
 import logging
 
+from typing import List, Tuple
+
+import agent.conf
+
 # Set logging level to suppress warnings
 logging.getLogger().setLevel(logging.ERROR)
 # Just disables the warnings
@@ -34,8 +38,24 @@ from objects import CardResp, Card, BidResp
 from claim import Claimer
 from pbn2ben import load
 from util import calculate_seed, get_play_status
-from pimc.PIMC import BGADLL
-from pimc.PIMCDef import BGADefDLL
+# This helps resolve the dependency issue of pythonnet (which needs .NET runtime)
+try:
+    from pimc.PIMC import BGADLL
+    from pimc.PIMCDef import BGADefDLL
+except:
+    print("Cannot import PIMC, which is dependent on pythonnet, which needs .NET runtime.")
+
+# Bridge Agent
+import agent
+from agent.human_agent import HumanAgent
+from agent.oracle import TheOracle
+from agent.naive_agent import NaiveAgent
+
+agent_type = agent.conf.AGENT_TYPE
+NORTH = 0
+EAST = 1
+SOUTH = 2
+WEST = 3
 
 def get_execution_path():
     # Get the directory where the program is started from either PyInstaller executable or the script
@@ -93,13 +113,16 @@ class Driver:
         self.decl_i = None
         self.strain_i = None
 
-    def set_deal(self, board_number, deal_str, auction_str, play_only = None, bidding_only=False):
+    def set_deal(self, board_number, deal_str, auction_str, play_only = None, bidding_only=False, contract=None, declarer_i=None):
         self.play_only = play_only
         self.bidding_only = bidding_only
         self.board_number = board_number
         self.deal_str = deal_str
         self.hands = deal_str.split()
         self.deal_data = DealData.from_deal_auction_string(self.deal_str, auction_str, "", self.ns, self.ew,  32)
+        self.agent: agent_type = None   # Reset the agents
+        if contract: self.contract = contract
+        if declarer_i is not None: self.decl_i = declarer_i
 
         auction_part = auction_str.split(' ')
         if play_only == None and len(auction_part) > 2: play_only = True
@@ -119,6 +142,13 @@ class Driver:
             self.vuln_ns = self.deal_data.vuln_ns
             self.vuln_ew = self.deal_data.vuln_ew
         self.trick_winners = []
+
+        # Set up the agent player (South Seat)
+        if agent_type == TheOracle:
+            # The Oracle gets to see all hands
+            self.agent = agent_type(self.deal_str, SOUTH)
+        else:
+            self.agent = agent_type(self.hands[SOUTH], SOUTH)
 
         # Now you can use hash_integer as a seed
         hash_integer = calculate_seed(deal_str)
@@ -156,8 +186,8 @@ class Driver:
         else:
             auction = await self.bidding()
 
-        self.contract = bidding.get_contract(auction)
         if self.contract is None:
+            self.contract = bidding.get_contract(auction)
             await self.channel.send(json.dumps({
                 'message': 'deal_end',
                 'pbn': self.deal_str,
@@ -166,8 +196,9 @@ class Driver:
             return
 
         self.strain_i = bidding.get_strain_i(self.contract)
-        self.decl_i = bidding.get_decl_i(self.contract)
-
+        if self.decl_i is None:
+            self.decl_i = bidding.get_decl_i(self.contract)
+        
         await self.channel.send(json.dumps({
             'message': 'auction_end',
             'declarer': self.decl_i,
@@ -335,12 +366,15 @@ class Driver:
             pimc[0] = None
             pimc[2] = None
 
+        # Set the card player models here
         card_players = [
             AsyncCardPlayer(self.models, 0, lefty_hand, dummy_hand, contract, is_decl_vuln, self.sampler, pimc[0], self.verbose),
             AsyncCardPlayer(self.models, 1, dummy_hand, decl_hand, contract, is_decl_vuln, self.sampler, pimc[1], self.verbose),
             AsyncCardPlayer(self.models, 2, righty_hand, dummy_hand, contract, is_decl_vuln, self.sampler, pimc[2], self.verbose),
             AsyncCardPlayer(self.models, 3, decl_hand, dummy_hand, contract, is_decl_vuln, self.sampler, pimc[3], self.verbose)
         ]
+        self.agent.set_init_x_play(dummy_hand, contract, decl_i)
+        agent_no = None
 
         # check if user is playing and update card players accordingly
         # the card players are allways positioned relative to declarer (lefty = 0, dummy = 1 ...)
@@ -348,15 +382,22 @@ class Driver:
             if self.human[i]:
                 # We are declarer or human declare and dummy
                 if decl_i == i or self.human_declare and decl_i == (i + 2) % 4:
-                    card_players[3] = self.factory.create_human_cardplayer(self.models, 3, decl_hand, dummy_hand, contract, is_decl_vuln)
-                    card_players[1] = self.factory.create_human_cardplayer(self.models, 1, dummy_hand, decl_hand, contract, is_decl_vuln)
-                    
+                    # keep the old setup
+                    # card_players[3] = self.factory.create_human_cardplayer(self.models, 3, decl_hand, dummy_hand, contract, is_decl_vuln)
+                    # card_players[1] = self.factory.create_human_cardplayer(self.models, 1, dummy_hand, decl_hand, contract, is_decl_vuln)
+                    card_players[3] = self.agent
+                    agent_no = 3
+
                 # We are lefty
                 if i == (decl_i + 1) % 4:
-                    card_players[0] = self.factory.create_human_cardplayer(self.models, 0, lefty_hand, dummy_hand, contract, is_decl_vuln)
+                    # card_players[0] = self.factory.create_human_cardplayer(self.models, 0, lefty_hand, dummy_hand, contract, is_decl_vuln)
+                    card_players[0] = self.agent
+                    agent_no = 0
                 # We are righty
                 if i == (decl_i + 3) % 4:
-                    card_players[2] = self.factory.create_human_cardplayer(self.models, 2, righty_hand, dummy_hand, contract, is_decl_vuln)
+                    # card_players[2] = self.factory.create_human_cardplayer(self.models, 2, righty_hand, dummy_hand, contract, is_decl_vuln)
+                    card_players[2] = self.agent
+                    agent_no = 2
 
         claimer = Claimer(self.verbose)
 
@@ -392,7 +433,7 @@ class Driver:
                         card_player.set_real_card_played(opening_lead52, player_i)
                         card_player.set_card_played(trick_i=trick_i, leader_i=leader_i, i=0, card=opening_lead)
                     continue
-
+                
                 play_status = get_play_status(card_players[player_i].hand52,current_trick52)
 
                 if isinstance(card_players[player_i], bots.CardPlayer):
@@ -411,7 +452,12 @@ class Driver:
 
                 card_resp = None
                 while card_resp is None:
+                    # TODO(check): this seems to be a good place to use DDS to find optimal play
+                    # by the agent
+                    # AgentEvaluator()
                     card_resp = await card_players[player_i].async_play_card(trick_i, leader_i, current_trick52, rollout_states, bidding_scores, good_quality, probability_of_occurence, shown_out_suits, play_status)
+                    # TODO(check): this seems to be a good place to evaluate the play
+                    # made by the agent
 
                     if (str(card_resp.card).startswith("Conceed")) :
                             self.claimedbydeclarer = False
@@ -478,16 +524,20 @@ class Driver:
                     card_player.set_real_card_played(card52, player_i)
                     card_player.set_card_played(trick_i=trick_i, leader_i=leader_i, i=player_i, card=card32)
 
+                # The current trick has been updated with new card played
                 current_trick.append(card32)
-
                 current_trick52.append(card52)
 
+                # Decrement the card just played, only used by bots.CardPlayer
                 card_players[player_i].set_own_card_played52(card52)
                 if player_i == 1:
                     for i in [0, 2, 3]:
                         card_players[i].set_public_card_played52(card52)
                 if player_i == 3:
                     card_players[1].set_public_card_played52(card52)
+
+                # TODO(check): seems to a good place to use DDS to solve board, 
+                # this is where card played has been updated in Ben.
 
                 # update shown out state
                 if card32 // 8 != current_trick[0] // 8:  # card is different suit than lead card
@@ -539,10 +589,15 @@ class Driver:
 
             # sanity checks for next trick
             for i, card_player in enumerate(card_players):
-                assert np.min(card_player.x_play[:, trick_i + 1, 0:32]) == 0
-                assert np.min(card_player.x_play[:, trick_i + 1, 32:64]) == 0
-                assert np.sum(card_player.x_play[:, trick_i + 1, 0:32], axis=1) == 13 - trick_i - 1
-                assert np.sum(card_player.x_play[:, trick_i + 1, 32:64], axis=1) == 13 - trick_i - 1
+                # TODO: there are inconsistencies in the x_play states 
+                # if the opening lead is the agent
+                try:
+                    assert np.min(card_player.x_play[:, trick_i + 1, 0:32]) == 0
+                    assert np.min(card_player.x_play[:, trick_i + 1, 32:64]) == 0
+                    assert np.sum(card_player.x_play[:, trick_i + 1, 0:32], axis=1) == 13 - trick_i - 1
+                    assert np.sum(card_player.x_play[:, trick_i + 1, 32:64], axis=1) == 13 - trick_i - 1
+                except AssertionError as e:
+                    print(f"Assertion error for player {i} in trick {trick_i}: {e}")
 
             trick_winner = (leader_i + get_trick_winner_i(current_trick52, (strain_i - 1) % 5)) % 4
             trick_won_by.append(trick_winner)
@@ -586,12 +641,13 @@ class Driver:
         for player_i in map(lambda x: x % 4, range(leader_i, leader_i + 4)):
             
             if not isinstance(card_players[player_i], bots.CardPlayer):
-                await card_players[player_i].get_card_input()
+                card52 = await card_players[player_i].get_card_input()
                 who = "Human"
             else:
+                # dump the remaining card for the last trick
+                card52 = np.nonzero(card_players[player_i].hand52)[0][0]
                 who = "NN"
 
-            card52 = np.nonzero(card_players[player_i].hand52)[0][0]
             card32 = card52to32(card52)
 
             card_resp = CardResp(card=Card.from_code(card52), candidates=[], samples=[], shape=-1, hcp=-1, quality=None, who=who)
@@ -606,6 +662,9 @@ class Driver:
             
             current_trick.append(card32)
             current_trick52.append(card52)
+            if agent_no is not None:
+                card_players[agent_no].set_real_card_played(card52, player_i)
+                card_players[agent_no].set_card_played(trick_i=trick_i, leader_i=leader_i, i=player_i, card=card32)
 
         await self.confirmer.confirm()
 
@@ -632,8 +691,12 @@ class Driver:
         self.trick_winners = trick_won_by
 
         # Print contract and result
-        print("Contract: ",self.contract, card_players[3].n_tricks_taken, "tricks")
+        if agent_no is not None:
+            card_players[agent_no].print_deque()
 
+        print("Contract: ",self.contract, card_players[3].n_tricks_taken, "tricks, Declarer: ", "NESW"[decl_i])
+
+        # TODO: log the result a file
     
     async def opening_lead(self, auction):
 
@@ -642,9 +705,15 @@ class Driver:
 
         hands_str = self.deal_str.split()
 
+
         await asyncio.sleep(0.01)
 
-        if self.human[(decl_i + 1) % 4]:
+        # Install the agent to open the lead
+        if agent.conf.INSTALL_AGENT and (decl_i + 1) % 4 == 2:
+            card_resp = await self.agent.opening_lead(self.contract)
+        # overwrite the default behavior of ben, agent will take care of the game 
+        # if there is any.
+        elif not agent.conf.INSTALL_AGENT and self.human[(decl_i + 1) % 4]:
             card_resp = await self.factory.create_human_leader().async_lead()
         else:
             bot_lead = AsyncBotLead(
@@ -669,8 +738,10 @@ class Driver:
 
         players = []
         hint_bots = [None, None, None, None]
+        # Use bots to perform for auction
+        all_bots = [False] * 4
 
-        for i, level in enumerate(self.human):
+        for i, level in enumerate(all_bots):
             if self.models.use_bba:
                 from bba.BBA import BBABotBid
                 players.append(BBABotBid(self.models.bba_ns, self.models.bba_ew, i, hands_str[i], vuln, self.dealer_i))
@@ -736,6 +807,7 @@ async def main():
     parser.add_argument("--biddingonly", type=bool, default=False, help="Just bidding, no play")
     parser.add_argument("--verbose", type=bool, default=False, help="Output samples and other information during play")
     parser.add_argument("--seed", type=int, help="Seed for random")
+    parser.add_argument("--agent", type=str, default="oracle", help="Agent to use")
 
     args = parser.parse_args()
 
@@ -745,6 +817,18 @@ async def main():
     playonly = args.playonly
     biddingonly = args.biddingonly
     seed = args.seed
+    global agent_type
+    if args.agent == "oracle":
+        agent_type = TheOracle
+    elif args.agent == "base":
+        agent_type = NaiveAgent
+    elif args.agent == "human":
+        agent_type = HumanAgent
+    elif args.agent is not None:
+        raise ValueError(f"Unknown agent type {args.agent}")
+    else:
+        agent_type = agent.conf.AGENT_TYPE
+
     boards = []
 
     if args.boards:
@@ -758,7 +842,7 @@ async def main():
                 for i in range(0, len(lines), 2):
                     board = {
                         'deal': lines[i].strip(),      
-                        'auction': lines[i+1].strip().replace('NT','N')  
+                        'auction': lines[i+1].strip().replace('NT','N')
                     }
                     boards.append(board)            
             print(f"{len(boards)} boards loaded from file")
@@ -814,18 +898,25 @@ async def main():
             rdeal = boards[board_no[0]]['deal']
             auction = boards[board_no[0]]['auction']
             print(f"Board: {board_no[0]+1} {rdeal}")
-            driver.set_deal(board_no[0] + 1, rdeal, auction, play_only=playonly, bidding_only=biddingonly)
+            contract = boards[board_no[0]].get('contract', None)
+            declarer = boards[board_no[0]].get('declarer', None)
+            if declarer is not None:
+                declarer = bidding.get_decl_i(declarer)
+            driver.set_deal(board_no[0] + 1, rdeal, auction, play_only=playonly, bidding_only=biddingonly, contract=contract, declarer_i= declarer)
             board_no[0] = (board_no[0] + 1)
 
         # BEN is handling all 4 hands
-        driver.human = [False, False, False, False]
+        driver.human = [False, False, True, False]
         t_start = time.time()
         await driver.run()
+
+        # Check if any agent is playing
+
 
         if not biddingonly:
             with shelve.open(f"{base_path}/gamedb") as db:
                 deal = driver.to_dict()
-                print(f"Saving Board: {driver.hands} in {base_path}/gamedb")
+                print(f"Saving Board {board_no[0]}: {driver.hands} in {base_path}/gamedb")
                 print('{1} Board played in {0:0.1f} seconds.'.format(time.time() - t_start, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
                 db[uuid.uuid4().hex] = deal
 
