@@ -17,18 +17,17 @@ class TheOracle(GenericAgent):
         hand_str = deals[position]
         super().__init__(hand_str, position)
 
-    def choose_card(self, lead_pos: PlayerPosition = None, current_trick52: List[int] = None) -> int:
+    def choose_card(self, lead_pos: PlayerPosition = None, current_trick52: List[int] = None, playing_dummy = False) -> int:
         pbn_str = PBN.from_cardsets(self.__cardsets__, PlayerPosition.NORTH)
         lead_pos = self.__position__ if lead_pos is None else lead_pos
         cards = [] if current_trick52 is None \
             else [Card.from_code(idx) for idx in current_trick52]
-        scores = DDSEvaluator(self.__contract__.trump_suite, lead_pos, cards, pbn_str)
+        scores = DDSEvaluator(self.__contract__.trump_suit, lead_pos, cards, pbn_str)
         card_idx = scores.get_best_card()
-        self.play_card(card_idx)
-
-        if not self.validate_follow_suit(card_idx, current_trick52):
-            print("You have a card in the suit. Please play a card in the suit.")
-            return self.choose_card(current_trick52)
+        if playing_dummy:
+            self.play_dummy_card(card_idx)
+        else:
+            self.play_card(card_idx)
         
         return card_idx
 
@@ -45,6 +44,11 @@ class TheOracle(GenericAgent):
         play_status: str) -> CardResp:
         seat = ((self.__contract__.declarer.value + 1) % 4 + leader_i) % 4
         card_idx = self.choose_card(PlayerPosition(seat), current_trick52)
+        return CardResp(card=Card.from_code(card_idx), candidates=[], samples=[], shape=-1, hcp=-1, quality=None, who=None)
+
+    async def play_dummy_hand(self, current_trick52: List[int], leader_seqno: int) -> CardResp:
+        seat = ((self.__contract__.declarer.value + 1) % 4 + leader_seqno) % 4
+        card_idx = self.choose_card(PlayerPosition(seat), current_trick52, playing_dummy=True)
         return CardResp(card=Card.from_code(card_idx), candidates=[], samples=[], shape=-1, hcp=-1, quality=None, who=None)
 
     async def get_card_input(self) -> int:

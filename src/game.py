@@ -50,6 +50,7 @@ import agent
 from agent.human_agent import HumanAgent
 from agent.oracle import TheOracle
 from agent.naive_agent import NaiveAgent
+from agent.dummy_agent import DummyAgent
 
 agent_type = agent.conf.AGENT_TYPE
 NORTH = 0
@@ -385,6 +386,8 @@ class Driver:
                     # keep the old setup
                     # card_players[3] = self.factory.create_human_cardplayer(self.models, 3, decl_hand, dummy_hand, contract, is_decl_vuln)
                     # card_players[1] = self.factory.create_human_cardplayer(self.models, 1, dummy_hand, decl_hand, contract, is_decl_vuln)
+                    card_players[1] = DummyAgent(self.hands[NORTH], NORTH, self.agent)
+                    card_players[1].set_init_x_play(decl_hand, contract, decl_i)
                     card_players[3] = self.agent
                     agent_no = 3
 

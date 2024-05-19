@@ -38,6 +38,8 @@ class CardSuit(enum.Enum):
             return CardSuit.CLUBS
         elif suit == "NT" or suit == "N":
             return CardSuit.NT
+        else:
+            raise ValueError(f"Invalid suit: {suit}")
         
 class CardRank(enum.Enum):
     TWO = 2
