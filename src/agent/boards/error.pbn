@@ -37,6 +37,43 @@ S8 SK S7 S6
 
 [Event "#"]
 [Site "#"]
+[Date "2000.07.06"]
+[Board "3"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:A96.7.AKQJ53.A65 843.A3.84.KT9872 KJT5.8642.T76.J3 Q72.KQJT95.92.Q4"]
+[Declarer "S"]
+[Contract "3NT"]
+[Result "9"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 400"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "S"]
+1C X Pass 2H
+X 3C 3S Pass
+3NT Pass Pass Pass
+[Play "W"]
+C9 C3 CQ CA
+D4 D6 D2 DA
+D8 DT D9 D3
+H3 D7 HK DQ
+C2 H2 H5 DK
+C7 H4 H9 DJ
+S4 H6 HT D5
+S3 S5 S2 SA
+S8 SK S7 S6
+*
+
+[Event "#"]
+[Site "#"]
 [Date "#"]
 [Board "4"]
 [West "Stefansson F"]

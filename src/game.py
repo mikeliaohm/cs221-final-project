@@ -6,6 +6,7 @@ import logging
 from typing import List, Tuple
 
 import agent.conf
+from agent.evaluator import AgentEvaluator
 
 # Set logging level to suppress warnings
 logging.getLogger().setLevel(logging.ERROR)
@@ -87,7 +88,7 @@ class AsyncCardPlayer(bots.CardPlayer):
     
 class Driver:
 
-    def __init__(self, models, factory, sampler, seed, verbose):
+    def __init__(self, models, factory, sampler, seed, verbose, log, log_file_name=None):
         self.models = models
         self.sampler = sampler
         self.factory = factory
@@ -113,6 +114,8 @@ class Driver:
         self.conceed = None
         self.decl_i = None
         self.strain_i = None
+        self.log = log # bool to indicate if agent should log the messages to the console
+        self.log_file_name = "temp" if log_file_name is None else log_file_name # the file to log the result of a single deal
 
     def set_deal(self, board_number, deal_str, auction_str, play_only = None, bidding_only=False, contract=None, declarer_i=None):
         self.play_only = play_only
@@ -121,7 +124,7 @@ class Driver:
         self.deal_str = deal_str
         self.hands = deal_str.split()
         self.deal_data = DealData.from_deal_auction_string(self.deal_str, auction_str, "", self.ns, self.ew,  32)
-        self.agent: agent_type = None   # Reset the agents
+        self.agent: agent.conf.AGENT_TYPES = None   # Reset the agents
         if contract: self.contract = contract
         if declarer_i is not None: self.decl_i = declarer_i
 
@@ -147,9 +150,9 @@ class Driver:
         # Set up the agent player (South Seat)
         if agent_type == TheOracle:
             # The Oracle gets to see all hands
-            self.agent = agent_type(self.deal_str, SOUTH)
+            self.agent = agent_type(self.deal_str, SOUTH, self.log)
         else:
-            self.agent = agent_type(self.hands[SOUTH], SOUTH)
+            self.agent = agent_type(self.hands[SOUTH], SOUTH, self.log)
 
         # Now you can use hash_integer as a seed
         hash_integer = calculate_seed(deal_str)
@@ -386,7 +389,7 @@ class Driver:
                     # keep the old setup
                     # card_players[3] = self.factory.create_human_cardplayer(self.models, 3, decl_hand, dummy_hand, contract, is_decl_vuln)
                     # card_players[1] = self.factory.create_human_cardplayer(self.models, 1, dummy_hand, decl_hand, contract, is_decl_vuln)
-                    card_players[1] = DummyAgent(self.hands[NORTH], NORTH, self.agent)
+                    card_players[1] = DummyAgent(self.hands[NORTH], NORTH, self.log, self.agent)
                     card_players[1].set_init_x_play(decl_hand, contract, decl_i)
                     card_players[3] = self.agent
                     agent_no = 3
@@ -696,8 +699,11 @@ class Driver:
         # Print contract and result
         if agent_no is not None:
             card_players[agent_no].print_deque()
-
         print("Contract: ",self.contract, card_players[3].n_tricks_taken, "tricks, Declarer: ", "NESW"[decl_i])
+        if agent_no is not None:
+            evaluator = AgentEvaluator(self.log_file_name, self.deal_str, card_players[agent_no], trick_won_by)
+            if self.log:
+                evaluator.log_result()
 
         # TODO: log the result a file
     
@@ -811,11 +817,13 @@ async def main():
     parser.add_argument("--verbose", type=bool, default=False, help="Output samples and other information during play")
     parser.add_argument("--seed", type=int, help="Seed for random")
     parser.add_argument("--agent", type=str, default="oracle", help="Agent to use")
+    parser.add_argument("--log", type=bool, default=False, help="Log the game")
 
     args = parser.parse_args()
 
     configfile = args.config
     verbose = args.verbose
+    log = args.log
     auto = args.auto
     playonly = args.playonly
     biddingonly = args.biddingonly
@@ -833,9 +841,10 @@ async def main():
         agent_type = agent.conf.AGENT_TYPE
 
     boards = []
-
+    log_file_name = None
     if args.boards:
         filename = args.boards
+        log_file_name = filename.split("/")[-1].split(".")[0]
         file_extension = os.path.splitext(filename)[1].lower()  
         if file_extension == '.ben':
             with open(filename, "r") as file:
@@ -882,7 +891,7 @@ async def main():
 
     models = Models.from_conf(configuration, base_path.replace(os.path.sep + "src",""))
 
-    driver = Driver(models, human.ConsoleFactory(), Sample.from_conf(configuration, verbose), seed, verbose)
+    driver = Driver(models, human.ConsoleFactory(), Sample.from_conf(configuration, verbose), seed, verbose, log, log_file_name)
 
     while True:
         if random: 

@@ -24,6 +24,9 @@ class Contract:
         self.trump_suit = trump_suit
         self.declarer = declarer
 
+    def __str__(self) -> str:
+        return f"{self.level}{self.trump_suit} Declarer: {self.declarer}"
+
     @staticmethod
     def validate_contract(contract: str) -> bool:
         if len(contract) < 2:
@@ -50,7 +53,7 @@ class Contract:
         return Contract(level, contract_suit, declarer)
 
 class GenericAgent:
-    def __init__(self, hand_str: str, position: int) -> None:
+    def __init__(self, hand_str: str, position: int, verbose: bool = False) -> None:
         self.__cards__: CardSet = card_to_index(hand_str)
         self.__played__: CardPlayed = deque()
         self.__position__: PlayerPosition = PlayerPosition(position)
@@ -58,6 +61,7 @@ class GenericAgent:
         self.x_play = None
         self.__contract__ = None
         self.n_tricks_taken: int = 0
+        self.__verbose__ = verbose
 
     def current_hand(self) -> str:
         """
@@ -65,11 +69,11 @@ class GenericAgent:
         """
         return cardset_to_hand(self.__cards__)
 
-    def print_deque(self) -> None:
+    def print_deque(self, tricks_result: List[PlayerPosition] = None) -> None:
         """
         Print the contents of the agent's played cards.
         """
-        print_deque(self.__played__)
+        print_deque(self.__played__, tricks_result)
 
     def validate_card(self, card_str: str, current_trick52: List[int] = None) -> bool:
         """
@@ -137,6 +141,10 @@ class GenericAgent:
     @property
     def control_dummy(self) -> bool:
         return self.__position__ == self.__contract__.declarer
+
+    @property
+    def is_declarer(self) -> PlayerPosition:
+        return self.control_dummy
 
     @property
     def player_seqno(self) -> int:

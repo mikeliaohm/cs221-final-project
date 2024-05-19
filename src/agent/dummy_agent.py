@@ -6,9 +6,9 @@ from agent.card_utils import CARD_INDEX_MAP, index_to_card
 from agent.conf import AGENT_TYPES
 
 class DummyAgent(GenericAgent):
-    def __init__(self, hand_str: str, position: int, agent: AGENT_TYPES) -> None:
+    def __init__(self, hand_str: str, position: int, verbose: bool, agent: AGENT_TYPES) -> None:
         self.__agent__ = agent
-        super().__init__(hand_str, position)
+        super().__init__(hand_str, position, verbose)
     
     async def async_play_card(self, trick_i: int, leader_i: int, 
         current_trick52: List[int], players_states: List[any], 

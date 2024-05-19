@@ -40,7 +40,7 @@ class CardSuit(enum.Enum):
             return CardSuit.NT
         else:
             raise ValueError(f"Invalid suit: {suit}")
-        
+
 class CardRank(enum.Enum):
     TWO = 2
     THREE = 3
@@ -184,7 +184,7 @@ def append_trick(tricks: CardPlayed, position: PlayerPosition, card: int) -> Non
     else:
         tricks[-1].append((position, card))
 
-def print_deque(deque: CardPlayed) -> None:
+def print_deque(deque: CardPlayed, tricks_result: List[PlayerPosition]) -> None:
     """
     Print the contents of a deque.
     """
@@ -192,6 +192,8 @@ def print_deque(deque: CardPlayed) -> None:
         msg = ", ".join([f"\'{index_to_card(play[1])}\'" for play in plays])
         msg += "\t"
         msg += " ".join([f"{play[0]}" for play in plays])
+        if tricks_result is not None:
+            msg += f"\twon by {tricks_result[idx]}"
         print(f"Trick {idx + 1:02}\t: {msg}")
 
 if __name__ == "__main__":

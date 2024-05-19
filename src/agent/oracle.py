@@ -8,14 +8,14 @@ from .card_stats import Card, PlayerPosition
 from .card_utils import CardSet, card_to_index
 
 class TheOracle(GenericAgent):
-    def __init__(self, deal_str: str, position: int) -> None:
+    def __init__(self, deal_str: str, position: int, verbose: bool) -> None:
         # The Oracle gets to see all hands
         deals = deal_str.split()
         self.__cardsets__: List[CardSet] = []
         for seat in range(4):
             self.__cardsets__.append(card_to_index(deals[seat]))
         hand_str = deals[position]
-        super().__init__(hand_str, position)
+        super().__init__(hand_str, position, verbose)
 
     def choose_card(self, lead_pos: PlayerPosition = None, current_trick52: List[int] = None, playing_dummy = False) -> int:
         pbn_str = PBN.from_cardsets(self.__cardsets__, PlayerPosition.NORTH)
@@ -49,6 +49,8 @@ class TheOracle(GenericAgent):
     async def play_dummy_hand(self, current_trick52: List[int], leader_seqno: int) -> CardResp:
         seat = ((self.__contract__.declarer.value + 1) % 4 + leader_seqno) % 4
         card_idx = self.choose_card(PlayerPosition(seat), current_trick52, playing_dummy=True)
+        if self.__verbose__:
+            print(f"Play on dummy card: {Card.from_code(card_idx)}")
         return CardResp(card=Card.from_code(card_idx), candidates=[], samples=[], shape=-1, hcp=-1, quality=None, who=None)
 
     async def get_card_input(self) -> int:
