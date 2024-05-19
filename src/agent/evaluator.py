@@ -6,6 +6,7 @@ This module defines the AgentEvaluator class that is used to evaluate the
 agent's performance.
 """
 
+import datetime
 from typing import List
 import logging
 import json
@@ -28,7 +29,8 @@ def log_subfolder(agent: AGENT_TYPES):
         return "human"
 
 class AgentEvaluator:
-    def __init__(self, file_name: str, deal_str: str, agent: AGENT_TYPES, tricks_result: List[int]) -> None:
+    def __init__(self, file_name: str, board_no: int, deal_str: str, 
+                 agent: AGENT_TYPES, tricks_result: List[int]) -> None:
         """
         @param deal_str: The deal string (AJ4.T7.AT652.KJ2 K73.A985432.Q9.7 985..KJ84.AQT654 QT62.KQJ6.73.983)
         @param agent: The agent object (e.g. TheOracle, NaiveAgent, etc), can access contract and played deque
@@ -38,9 +40,14 @@ class AgentEvaluator:
         self.__agent__ = agent
         find_seat = lambda seqno: PlayerPosition((agent.__contract__.declarer.value + 1 + seqno) % 4)
         self.__tricks_result__ = [find_seat(seqno) for seqno in tricks_result]
-        LOG_FOLDER = f"agent/logs/{log_subfolder(agent)}"
+
+        # Check if file_name contains a subfolder
+        sub_folder = os.path.dirname(file_name)
+        log_file_name = os.path.basename(file_name)
+        LOG_FOLDER = f"agent/logs/{log_subfolder(agent)}/{sub_folder}"
         os.makedirs(LOG_FOLDER, exist_ok=True)
-        self.__log_file__ = f"{LOG_FOLDER}/{file_name}.json"
+        self.__log_file__ = f"{LOG_FOLDER}/{log_file_name}.json"
+        self.__board_no__ = board_no
 
         logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s', 
                             datefmt='%Y-%m-%d %H:%M:%S', filemode="a")
@@ -123,6 +130,8 @@ class AgentEvaluator:
         tricks_won = self.__agent__.n_tricks_taken
 
         log_message = {
+            "Timestamp": datetime.datetime.now().isoformat(),
+            "Board number": f"{self.__board_no__}",
             "Declarer": f"{declarer}",
             "Contract": f"{contract.level}{contract.trump_suit}",
             "Tricks won": tricks_won,

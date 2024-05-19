@@ -6,10 +6,13 @@ To run a game setting for a specific board from .pbn file.
 
 ```bash
 # This script will run the simulation until all boards have been played
-python game.py --boards agent/boards/declarer.pbn --playonly True --boardno 1 --auto True
+python game.py --boardfile agent/boards/declarer.pbn --playonly True --boardno 1 --auto True
 
 # Simulate all boards in a tournament record
-python game.py --boards agent/boards/eyc00pbn/A1A10101.PBN --playonly True --boardno 1 --auto True
+python game.py --boardfile agent/boards/eyc00pbn/A1A10101.PBN --playonly True --boardno 1 --auto True
+
+# Simulate all boards in a folder and log the results
+python game.py --boarddir agent/boards/simulate --playonly True --boardno 1 --auto True --log True
 ```
 
 ## Tests

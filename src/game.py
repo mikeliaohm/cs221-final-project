@@ -125,8 +125,8 @@ class Driver:
         self.hands = deal_str.split()
         self.deal_data = DealData.from_deal_auction_string(self.deal_str, auction_str, "", self.ns, self.ew,  32)
         self.agent: agent.conf.AGENT_TYPES = None   # Reset the agents
-        if contract: self.contract = contract
-        if declarer_i is not None: self.decl_i = declarer_i
+        self.contract = contract
+        self.decl_i = declarer_i
 
         auction_part = auction_str.split(' ')
         if play_only == None and len(auction_part) > 2: play_only = True
@@ -191,13 +191,16 @@ class Driver:
             auction = await self.bidding()
 
         if self.contract is None:
-            self.contract = bidding.get_contract(auction)
+            contract = bidding.get_contract(auction)
+            self.contract = contract[:-1]
+            self.decl_i = bidding.get_decl_i(contract)
             await self.channel.send(json.dumps({
                 'message': 'deal_end',
                 'pbn': self.deal_str,
                 'dict': self.to_dict() 
             }))
-            return
+            if self.bidding_only:
+                return
 
         self.strain_i = bidding.get_strain_i(self.contract)
         if self.decl_i is None:
@@ -701,7 +704,8 @@ class Driver:
             card_players[agent_no].print_deque()
         print("Contract: ",self.contract, card_players[3].n_tricks_taken, "tricks, Declarer: ", "NESW"[decl_i])
         if agent_no is not None:
-            evaluator = AgentEvaluator(self.log_file_name, self.deal_str, card_players[agent_no], trick_won_by)
+            evaluator = AgentEvaluator(self.log_file_name, self.board_number, self.deal_str, 
+                                       card_players[agent_no], trick_won_by)
             if self.log:
                 evaluator.log_result()
 
@@ -795,12 +799,110 @@ def random_deal_source():
     while True:
         yield random_deal_board()
 
+async def simulate(random: bool, base_path: str, board_file: str, boardno: int, 
+                   configfile: str, verbose: bool, seed: int, log: bool, auto: bool, 
+                   playonly: bool, biddingonly: bool, board_dir: str = None):
+    board_no = 0
+    boards = []
+    if random:
+        log_file_name = "random"
+    else:
+        log_file_name = board_file.split("/")[-1].split(".")[0]
+        if board_dir:
+            sub_dir = board_dir.split("/")[-1]
+            log_file_name = f"{sub_dir}/{log_file_name}"
+        file_extension = os.path.splitext(board_file)[1].lower()  
+        if file_extension == '.ben':
+            with open(board_file, "r") as file:
+                lines = file.readlines()  # 
+                # Loop through the lines, grouping them into objects
+                for i in range(0, len(lines), 2):
+                    board = {
+                        'deal': lines[i].strip(),      
+                        'auction': lines[i+1].strip().replace('NT','N')
+                    }
+                    boards.append(board)            
+            print(f"{len(boards)} boards loaded from {board_file}")
+        if file_extension == '.pbn':
+            with open(board_file, "r") as file:
+                lines = file.readlines()
+                boards = load(lines)
+                print(f"{len(boards)} boards loaded from {board_file}")
+
+    if boardno:
+        print(f"Starting from {boardno}")
+        board_no -= 1
+        boardno = boardno
+
+    np.set_printoptions(precision=1, suppress=True, linewidth=200)
+
+    configuration = conf.load(configfile)
+        
+    try:
+        if (configuration["models"]['tf_version'] == "2"):
+            print("Loading version 2")
+            from nn.models_tf2 import Models
+        else: 
+            # Default to version 1. of Tensorflow
+            from nn.models import Models
+    except KeyError:
+            # Default to version 1. of Tensorflow
+            from nn.models import Models
+
+    models = Models.from_conf(configuration, base_path.replace(os.path.sep + "src",""))
+
+    driver = Driver(models, human.ConsoleFactory(), Sample.from_conf(configuration, verbose), 
+                    seed, verbose, log, log_file_name)
+
+    while True:
+        if random: 
+            print("Playing random deals or deals from the client")
+            if boardno:
+                np.random.seed(boardno)
+
+            #Just take a random"
+            rdeal = random_deal_board(boardno)
+            # example of to use a fixed deal
+            # rdeal = ('973.KT652.A42.65 8.QJ98.KQ8765.K3 AKQ4.A74.T3.QJT2 JT652.3.J9.A9874', 'N N-S')
+
+            print(f"Playing Board: {rdeal}")
+            driver.set_deal(None, *rdeal, False, bidding_only=biddingonly)
+        else:
+            if board_no >= len(boards):
+                break
+            rdeal = boards[board_no]['deal']
+            auction = boards[board_no]['auction']
+            print(f"Board: {board_no + 1} {rdeal}")
+            contract = boards[board_no].get('contract', None)
+            declarer = boards[board_no].get('declarer', None)
+            if declarer is not None:
+                declarer = bidding.get_decl_i(declarer)
+            driver.set_deal(board_no + 1, rdeal, auction, play_only=playonly, 
+                            bidding_only=biddingonly, contract=contract, declarer_i= declarer)
+
+        # Agent is playing the South Seat while BEN is handling the other 3 hands
+        driver.human = [False, False, True, False]
+        t_start = time.time()
+        await driver.run()
+        board_no += 1
+
+        # Check if any agent is playing
+        if not biddingonly:
+            with shelve.open(f"{base_path}/gamedb") as db:
+                deal = driver.to_dict()
+                print(f"Saving Board {board_no}: {driver.hands} in {base_path}/gamedb")
+                print('{1} Board played in {0:0.1f} seconds.'.format(time.time() - t_start, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+                db[uuid.uuid4().hex] = deal
+
+        if not auto:
+            user_input = input("\n Q to quit or any other key for next deal ")
+            if user_input.lower() == "q":
+                break
+
 async def main():
     random = True
     #For some strange reason parameters parsed to the handler must be an array
     boardno = None
-    board_no = []
-    board_no.append(0) 
 
     # Get the path to the config file
     config_path = get_execution_path()
@@ -808,7 +910,6 @@ async def main():
     base_path = os.getenv('BEN_HOME') or config_path
 
     parser = argparse.ArgumentParser(description="Game server")
-    parser.add_argument("--boards", default="", help="Filename for configuration")
     parser.add_argument("--auto", type=bool, default=False, help="Continue without user confirmation. If a file is provided it will stop at end of file")
     parser.add_argument("--boardno", default=0, type=int, help="Board number to start from")
     parser.add_argument("--config", default=f"{base_path}/config/default.conf", help="Filename for configuration")
@@ -818,6 +919,8 @@ async def main():
     parser.add_argument("--seed", type=int, help="Seed for random")
     parser.add_argument("--agent", type=str, default="oracle", help="Agent to use")
     parser.add_argument("--log", type=bool, default=False, help="Log the game")
+    parser.add_argument("--boardfile", default=None, help="Load the boards contained in a single file")
+    parser.add_argument("--boarddir", type=str, default=None, help="Directory for boards")
 
     args = parser.parse_args()
 
@@ -840,105 +943,29 @@ async def main():
     else:
         agent_type = agent.conf.AGENT_TYPE
 
-    boards = []
-    log_file_name = None
-    if args.boards:
-        filename = args.boards
-        log_file_name = filename.split("/")[-1].split(".")[0]
-        file_extension = os.path.splitext(filename)[1].lower()  
-        if file_extension == '.ben':
-            with open(filename, "r") as file:
-                board_no.append(0) 
-                lines = file.readlines()  # 
-                # Loop through the lines, grouping them into objects
-                for i in range(0, len(lines), 2):
-                    board = {
-                        'deal': lines[i].strip(),      
-                        'auction': lines[i+1].strip().replace('NT','N')
-                    }
-                    boards.append(board)            
-            print(f"{len(boards)} boards loaded from file")
-            random = False
-        if file_extension == '.pbn':
-            with open(filename, "r") as file:
-                lines = file.readlines()
-                boards = load(lines)
-                print(f"{len(boards)} boards loaded from file")
-            random = False
+    board_files = []
+    boarddir = args.boarddir
+    boardfile = args.boardfile
+    random = False
+    if boarddir is not None and boardfile is not None:
+        raise ValueError("Cannot specify both board directory and board file")
 
-    if args.boardno:
-        print(f"Starting from {args.boardno}")
-        board_no[0] = args.boardno - 1
-        boardno = args.boardno
+    if boarddir is not None:
+        print(f"Loading boards from {boarddir}")
+        for filename in os.listdir(boarddir):
+            board_files.append(os.path.join(boarddir, filename))
+    elif boardfile is not None:
+        board_files.append(boardfile)
+    else:
+        random = True
 
     if random:
-        print("Playing random deals or deals from the client")
- 
-    np.set_printoptions(precision=1, suppress=True, linewidth=200)
-
-    configuration = conf.load(configfile)
-        
-    try:
-        if (configuration["models"]['tf_version'] == "2"):
-            print("Loading version 2")
-            from nn.models_tf2 import Models
-        else: 
-            # Default to version 1. of Tensorflow
-            from nn.models import Models
-    except KeyError:
-            # Default to version 1. of Tensorflow
-            from nn.models import Models
-
-    models = Models.from_conf(configuration, base_path.replace(os.path.sep + "src",""))
-
-    driver = Driver(models, human.ConsoleFactory(), Sample.from_conf(configuration, verbose), seed, verbose, log, log_file_name)
-
-    while True:
-        if random: 
-            if boardno:
-                np.random.seed(boardno)
-
-            #Just take a random"
-            rdeal = random_deal_board(boardno)
-
-            # example of to use a fixed deal
-            # rdeal = ('973.KT652.A42.65 8.QJ98.KQ8765.K3 AKQ4.A74.T3.QJT2 JT652.3.J9.A9874', 'N N-S')
-
-            print(f"Playing Board: {rdeal}")
-            driver.set_deal(None, *rdeal, False, bidding_only=biddingonly)
-        else:
-            rdeal = boards[board_no[0]]['deal']
-            auction = boards[board_no[0]]['auction']
-            print(f"Board: {board_no[0]+1} {rdeal}")
-            contract = boards[board_no[0]].get('contract', None)
-            declarer = boards[board_no[0]].get('declarer', None)
-            if declarer is not None:
-                declarer = bidding.get_decl_i(declarer)
-            driver.set_deal(board_no[0] + 1, rdeal, auction, play_only=playonly, bidding_only=biddingonly, contract=contract, declarer_i= declarer)
-            board_no[0] = (board_no[0] + 1)
-
-        # BEN is handling all 4 hands
-        driver.human = [False, False, True, False]
-        t_start = time.time()
-        await driver.run()
-
-        # Check if any agent is playing
-
-
-        if not biddingonly:
-            with shelve.open(f"{base_path}/gamedb") as db:
-                deal = driver.to_dict()
-                print(f"Saving Board {board_no[0]}: {driver.hands} in {base_path}/gamedb")
-                print('{1} Board played in {0:0.1f} seconds.'.format(time.time() - t_start, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
-                db[uuid.uuid4().hex] = deal
-
-        if not auto:
-            user_input = input("\n Q to quit or any other key for next deal ")
-            if user_input.lower() == "q":
-                break
-        else:
-            if args.boards and board_no[0] >= len(boards):
-                break
+        await simulate(random, base_path, None, boardno, configfile, verbose, 
+                       seed, log, auto, playonly, biddingonly)
+    else:
+        for board_file in board_files:
+            await simulate(random, base_path, board_file, boardno, configfile, 
+                           verbose, seed, log, auto, playonly, biddingonly, board_dir=boarddir)
 
 if __name__ == '__main__':
     loop = asyncio.new_event_loop()
