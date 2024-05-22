@@ -29,6 +29,15 @@ python -m unittest discover -s agent/tests/
 
 The pbn file has the format looks like the following.
 
+## Card to Index Mapping
+
+```text
+0: SA   1: SK   2: SQ   3: SJ   4: ST   5: S9   6: S8   7: S7   8: S6   9: S5   10: S4  11: S3  12: S2
+13: HA  14: HK  15: HQ  16: HJ  17: HT  18: H9  19: H8  20: H7  21: H6  22: H5  23: H4  24: H3  25: H2
+26: DA  27: DK  28: DQ  29: DJ  30: DT  31: D9  32: D8  33: D7  34: D6  35: D5  36: D4  37: D3  38: D2
+39: CA  40: CK  41: CQ  42: CJ  43: CT  44: C9  45: C8  46: C7  47: C6  48: C5  49: C4  50: C3  51: C2
+```
+
 ```text
 % PBN 1.0
 % EXPORT

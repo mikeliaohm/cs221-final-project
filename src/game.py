@@ -523,7 +523,7 @@ class Driver:
 
                 await self.channel.send(json.dumps({
                     'message': 'card_played',
-                    'player': ((decl_i + 1) % 4 + player_i) % 4,
+                    'seat': ((decl_i + 1) % 4 + player_i) % 4,
                     'card': card_resp.card.symbol()
                 }))
 
@@ -663,7 +663,7 @@ class Driver:
 
             await self.channel.send(json.dumps({
                 'message': 'card_played',
-                'player': ((decl_i + 1) % 4 + player_i) % 4,
+                'seat': ((decl_i + 1) % 4 + player_i) % 4,
                 'card': card_resp.card.symbol()
             }))
 
@@ -872,11 +872,18 @@ async def simulate(random: bool, base_path: str, board_file: str, boardno: int,
                 break
             rdeal = boards[board_no]['deal']
             auction = boards[board_no]['auction']
+            print("\n===============================")
             print(f"Board: {board_no + 1} {rdeal}")
+            print("===============================\n")
             contract = boards[board_no].get('contract', None)
             declarer = boards[board_no].get('declarer', None)
             if declarer is not None:
                 declarer = bidding.get_decl_i(declarer)
+                # There is no need to simulate the game since the agent (the dummy hand) is not playing
+                if declarer == NORTH:
+                    print(f"Skipping board {board_no} since declarer is North")
+                    board_no += 1
+                    continue
             driver.set_deal(board_no + 1, rdeal, auction, play_only=playonly, 
                             bidding_only=biddingonly, contract=contract, declarer_i= declarer)
 
@@ -917,7 +924,7 @@ async def main():
     parser.add_argument("--biddingonly", type=bool, default=False, help="Just bidding, no play")
     parser.add_argument("--verbose", type=bool, default=False, help="Output samples and other information during play")
     parser.add_argument("--seed", type=int, help="Seed for random")
-    parser.add_argument("--agent", type=str, default="oracle", help="Agent to use")
+    parser.add_argument("--agent", type=str, default=None, help="Agent to use")
     parser.add_argument("--log", type=bool, default=False, help="Log the game")
     parser.add_argument("--boardfile", default=None, help="Load the boards contained in a single file")
     parser.add_argument("--boarddir", type=str, default=None, help="Directory for boards")

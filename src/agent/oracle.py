@@ -5,17 +5,20 @@ from .generic_agent import GenericAgent
 from .dds_eval import DDSEvaluator
 from .pbn import PBN
 from .card_stats import Card, PlayerPosition
-from .card_utils import CardSet, card_to_index
+from .card_utils import CardSet, card_to_index, index_to_card
 
 class TheOracle(GenericAgent):
     def __init__(self, deal_str: str, position: int, verbose: bool) -> None:
         # The Oracle gets to see all hands
         deals = deal_str.split()
+        hand_str = deals[position]
+        super().__init__(hand_str, position, verbose)
         self.__cardsets__: List[CardSet] = []
         for seat in range(4):
             self.__cardsets__.append(card_to_index(deals[seat]))
-        hand_str = deals[position]
-        super().__init__(hand_str, position, verbose)
+
+    def __str__(self) -> str:
+        return "Oracle"
 
     def choose_card(self, lead_pos: PlayerPosition = None, current_trick52: List[int] = None, playing_dummy = False) -> int:
         pbn_str = PBN.from_cardsets(self.__cardsets__, PlayerPosition.NORTH)
@@ -24,11 +27,6 @@ class TheOracle(GenericAgent):
             else [Card.from_code(idx) for idx in current_trick52]
         scores = DDSEvaluator(self.__contract__.trump_suit, lead_pos, cards, pbn_str)
         card_idx = scores.get_best_card()
-        if playing_dummy:
-            self.play_dummy_card(card_idx)
-        else:
-            self.play_card(card_idx)
-        
         return card_idx
 
     async def opening_lead(self, contract: str) -> CardResp:
@@ -52,17 +50,6 @@ class TheOracle(GenericAgent):
         if self.__verbose__:
             print(f"Play on dummy card: {Card.from_code(card_idx)}")
         return CardResp(card=Card.from_code(card_idx), candidates=[], samples=[], shape=-1, hcp=-1, quality=None, who=None)
-
-    async def get_card_input(self) -> int:
-        deque_count = len(self.__played__)
-        # Play the last trick
-        if deque_count == 13 or (deque_count == 12 and len(self.__played__[-1]) == 4):
-            assert len(self.__cards__) == 1
-            card_idx = min(self.__cards__)
-        else:
-            card_idx = self.choose_card()
-        self.play_card(card_idx)
-        return card_idx
     
     # Override the set_real_card_played() method to remove the played card from the other players' hands
     def set_real_card_played(self, opening_lead52: int, player_i: int) -> None:

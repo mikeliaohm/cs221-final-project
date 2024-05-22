@@ -4,7 +4,7 @@ import ctypes
 from agent.dds_eval import solve_board_pbn
 from agent.pbn import PBN
 from agent.card_stats import PlayerPosition, CardSuit, CardRank, Card
-from agent.python_dds.examples import functions
+from ddsolver import functions
 
 # This is required for loading the DDS shared library
 from ddsolver import dds

@@ -20,6 +20,8 @@ def index_to_card(index: int) -> str:
     Returns:
         str: A string representation of the card, e.g., "K" or "S"
     """
+    if index < 0 or index >= 52:
+        raise ValueError(f"Invalid index: {index}")
 
     # Determine the suit and rank based on the index
     rank = RANKS[index % 13]
@@ -94,14 +96,22 @@ def complementary_cardset(cardset: CardSet) -> CardSet:
     return complementary_cards
 
 if __name__ == "__main__":
-  # Example usage
-  print("Card Utils, converting between card strings and indices")
-  print("-----------------------------------------------------")
-  hand_str = "AQ54.AQ752..Q984"
-  print(f"Example 1: {hand_str}")
-  indices = card_to_index(hand_str)
-  print("Card Indices:", indices)
+    # Example usage
+    print("Card Utils, converting between card strings and indices")
+    print("-----------------------------------------------------")
+    hand_str = "AQ54.AQ752..Q984"
+    print(f"Example 1: {hand_str}")
+    indices = card_to_index(hand_str)
+    print("Card Indices:", indices)
 
-  convert_back = cardset_to_hand(indices)
-  print("Converted Back:", convert_back)
+    convert_back = cardset_to_hand(indices)
+    print("Converted Back:", convert_back)
     
+    j = 1
+    msg = ""
+    for card, idx in CARD_INDEX_MAP.items():
+        msg += f"{idx}: {card}\t"
+        if j % 13 == 0:
+            msg += "\n"
+        j += 1
+    print(msg)

@@ -23,7 +23,6 @@ class HumanAgent(GenericAgent):
                 if not self.validate_follow_suit(card_idx, current_trick52):
                     print("You have a card in the suit. Please play a card in the suit.")
                     continue
-                self.play_card(card_idx)
                 return card_idx
             else:
                 print("Invalid card. Please enter a valid card.")
@@ -40,5 +39,13 @@ class HumanAgent(GenericAgent):
         card_idx = self.choose_card(current_trick52)
         return CardResp(card=Card.from_code(card_idx), candidates=[], samples=[], shape=-1, hcp=-1, quality=None, who=None)
     
+    def set_real_card_played(self, opening_lead52: int, player_i: int) -> None:
+        seat = ((self.__contract__.declarer.value + 1) % 4 + player_i) % 4
+        # The NaiveAgent only knows its own hand
+        known_hands = [self.__position__.value, self.dummy_position.value]
+        if seat in known_hands:
+            self.__cardsets__[seat].remove(opening_lead52)
+        super().set_real_card_played(opening_lead52, player_i)
+
     async def get_card_input(self) -> int:
         return self.choose_card()

@@ -16,10 +16,16 @@ class DummyAgent(GenericAgent):
         probability_of_occurence: List[float], shown_out_suits: List[Dict], 
         play_status: str) -> CardResp:
         card_resp = await self.__agent__.play_dummy_hand(current_trick52, leader_i)
-        self.play_card(card_resp.card.code())
         return card_resp
     
+    def set_real_card_played(self, opening_lead52: int, player_i: int) -> None:
+        seat = ((self.__contract__.declarer.value + 1) % 4 + player_i) % 4
+        # Dummy only tracks its own hand
+        if seat == self.__position__.value:
+            self.__cardsets__[seat].remove(opening_lead52)
+        super().set_real_card_played(opening_lead52, player_i)
+
     async def get_card_input(self) -> int:
         assert len(self.__cards__) == 1
-        card_idx = self.__cards__.pop()
+        card_idx = min(self.__cards__)
         return card_idx

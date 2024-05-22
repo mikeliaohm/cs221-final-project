@@ -2,10 +2,7 @@ import enum
 from typing import Dict, List, Tuple
 from collections import deque
 
-try:
-    from .card_utils import index_to_card, CARD_INDEX_MAP
-except ImportError:
-    from card_utils import index_to_card, CARD_INDEX_MAP
+from agent.card_utils import CardSet, index_to_card, CARD_INDEX_MAP
 
 class CardSuit(enum.Enum):
     SPADES = 0
@@ -40,6 +37,14 @@ class CardSuit(enum.Enum):
             return CardSuit.NT
         else:
             raise ValueError(f"Invalid suit: {suit}")
+    
+    @staticmethod
+    def from_card_idx(card_idx: int) -> "CardSuit":
+        return CardSuit(card_idx // 13)
+    
+    @staticmethod
+    def all_suits() -> List["CardSuit"]:
+        return [CardSuit.SPADES, CardSuit.HEARTS, CardSuit.DIAMONDS, CardSuit.CLUBS]
 
 class CardRank(enum.Enum):
     TWO = 2
@@ -135,6 +140,12 @@ class Card():
         suit = CardSuit.from_str(card_str[0])
         rank = CardRank.from_str(card_str[1])
         return Card(suit, rank)
+    
+    @staticmethod
+    def from_str(card_str: str) -> "Card":
+        suit = CardSuit.from_str(card_str[0])
+        rank = CardRank.from_str(card_str[1])
+        return Card(suit, rank)
 
     def symbol(self):
         return self.__str__()
@@ -166,6 +177,25 @@ class PlayerPosition(enum.Enum):
         else:
             return "W"
 
+class PlayerTurn():
+    def __init__(self, cur_player: PlayerPosition) -> None:
+        self._cur_player = cur_player
+        
+    def __str__(self) -> str:
+        return f"{self._cur_player}"
+        
+    def position(self) -> PlayerPosition:
+        return self._cur_player
+        
+    def next(self) -> "PlayerTurn":
+        return self.next_k(1)
+    
+    def prev(self) -> "PlayerTurn":
+        return PlayerTurn(PlayerPosition((self._cur_player.value + 3) % 4))
+    
+    def next_k(self, k: int) -> "PlayerTurn":
+        return PlayerTurn(PlayerPosition((self._cur_player.value + k) % 4))
+
 # Store a card trick
 CardTrick = List[Tuple[PlayerPosition, int]]
 CardPlayed = deque[CardTrick]
@@ -195,6 +225,33 @@ def print_deque(deque: CardPlayed, tricks_result: List[PlayerPosition]) -> None:
         if tricks_result is not None:
             msg += f"\twon by {tricks_result[idx]}"
         print(f"Trick {idx + 1:02}\t: {msg}")
+
+def highest_card(cardset: CardSet, suit: CardSuit) -> int:
+    """
+    Return the highest card in the given suit. If the suit is NT, 
+    return -1 (meaning no trump card).
+    """
+    suit_cards = [card for card in cardset if card // 13 == suit.value]
+    return min(suit_cards) if len(suit_cards) > 0 else -1
+
+def lowest_card(cardset: CardSet, suit: CardSuit) -> int:
+    """
+    Return the lowest card in the given suit. If the suit is NT, 
+    return -1 (meaning no trump card).
+    """
+    suit_cards = [card for card in cardset if card // 13 == suit.value]
+    return max(suit_cards) if len(suit_cards) > 0 else -1
+
+def lowest_card_in_any_suit(cardset: CardSet) -> int:
+    """
+    Return the lowest card in any suit.
+    """
+    max = -1
+    for card in cardset:
+        card = Card.from_code(card)
+        if card.rank.value > max:
+            max = card.code()
+    return max
 
 if __name__ == "__main__":
     print(Card(CardSuit.SPADES, CardRank.ACE))

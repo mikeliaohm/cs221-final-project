@@ -131,6 +131,7 @@ class AgentEvaluator:
 
         log_message = {
             "Timestamp": datetime.datetime.now().isoformat(),
+            "Agent": f"{self.__agent__}",
             "Board number": f"{self.__board_no__}",
             "Declarer": f"{declarer}",
             "Contract": f"{contract.level}{contract.trump_suit}",
