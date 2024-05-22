@@ -28,15 +28,13 @@ class NaiveAgent(GenericAgent):
         elif not playing_dummy and not self.validate_follow_suit(card_idx, current_trick52):
             print("\nxxxx  error following the suit, card chosen: ", index_to_card(card_idx), "  xxxx\n")
             self.print_cards()
-            self.print_debug(lead_pos, current_trick52)
-            assert False
+            card_idx = self.fallback(lead_pos, current_trick52)
 
         # Sanity check to make sure the card chosen is in the hand
         elif not card_idx in self.__cardsets__[seat.value]:
             print("\nxxxx  error playing a card not in hand: ", index_to_card(card_idx), "  xxxx\n")
             self.print_cards()
-            self.print_debug(lead_pos, current_trick52)
-            assert False
+            card_idx = self.fallback(lead_pos, current_trick52)
         
         return card_idx
 

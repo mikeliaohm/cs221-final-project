@@ -5,10 +5,12 @@ from agent.dds_eval import solve_board_pbn
 from agent.pbn import PBN
 from agent.card_stats import PlayerPosition, CardSuit, CardRank, Card
 from ddsolver import functions
+from agent.conf import dds
+
 
 # This is required for loading the DDS shared library
-from ddsolver import dds
-dds.SetMaxThreads(0)
+# from ddsolver import dds
+# dds.SetMaxThreads(0)
 
 """
 Sample output from SolveBoard
