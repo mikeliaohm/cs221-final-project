@@ -7,7 +7,7 @@ from agent.assigners.random_assigner import RandomAssigner
 from objects import Card, CardResp
 from agent.card_stats import CardSuit, PlayerPosition, PlayerTurn, highest_card, lowest_card, lowest_card_in_any_suit
 from agent.generic_agent import GenericAgent
-from agent.card_utils import CARD_INDEX_MAP, CardSet, index_to_card
+from agent.card_utils import CARD_INDEX_MAP, CardSet, card_to_index, index_to_card
 
 class NaiveAgent(GenericAgent):
     def __str__(self) -> str:
@@ -52,9 +52,10 @@ class NaiveAgent(GenericAgent):
                 card_idx = max(card for card in cardset if card // 13 == suit)
         return card_idx
         
-    async def opening_lead(self, contract: str) -> CardResp:
+    async def opening_lead(self, contract: str, dummy_hand_str: str) -> CardResp:
         declarer = PlayerPosition((self.__position__.value + 4 - 1) % 4)
         self.set_contract(contract, declarer)
+        self.__cardsets__[self.dummy_position.value] = card_to_index(dummy_hand_str)
         card_idx = self.choose_card()
         return CardResp(card=Card.from_code(card_idx), candidates=[], samples=[], shape=-1, hcp=-1, quality=None, who=None)
     
@@ -94,34 +95,6 @@ class NaiveAgent(GenericAgent):
     The section below defines methods used to deal with the unseen cards.
     =================================================================================
     """
-    def get_hidden_players(self) -> List[PlayerPosition]:
-        if self.is_declarer:
-            hidden_players = [PlayerPosition.EAST, PlayerPosition.WEST]
-        elif self.__contract__.declarer == PlayerPosition.WEST:
-            hidden_players = [PlayerPosition.NORTH, PlayerPosition.WEST]
-        elif self.__contract__.declarer == PlayerPosition.EAST:
-            hidden_players = [PlayerPosition.NORTH, PlayerPosition.EAST]
-        else:
-            raise ValueError("Shouldn't have reached here since the agent is never playing when NORTH is the declarer.")
-        
-        return hidden_players
-    
-    def get_unseen_cards(self) -> CardSet:
-        unseen_cards = set(range(52))
-        for player in [self.__position__.value, self.dummy_position.value]:
-            unseen_cards -= self.__cardsets__[player]
-        num_complete_tricks = sum(1 for trick in self.__played__ if len(trick) == 4)
-        hidden_players = self.get_hidden_players()
-        unseen_counts = {player: 13 - num_complete_tricks for player in hidden_players}
-        if len(self.__played__) == 0:
-            return unseen_cards, unseen_counts
-        
-        for player, card_idx in self.__played__[-1]:
-            if player in hidden_players:
-                unseen_counts[player] -= 1
-            unseen_cards.remove(card_idx)
-        
-        return unseen_cards, unseen_counts
     
     def assign_cards(self) -> None:
         unseen_cards, unseen_counts = self.get_unseen_cards()

@@ -723,7 +723,8 @@ class Driver:
 
         # Install the agent to open the lead
         if agent.conf.INSTALL_AGENT and (decl_i + 1) % 4 == 2:
-            card_resp = await self.agent.opening_lead(self.contract)
+            dummy_hand = hands_str[(decl_i + 2) % 4]
+            card_resp = await self.agent.opening_lead(self.contract, dummy_hand)
         # overwrite the default behavior of ben, agent will take care of the game 
         # if there is any.
         elif not agent.conf.INSTALL_AGENT and self.human[(decl_i + 1) % 4]:

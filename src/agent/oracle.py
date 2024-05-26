@@ -29,9 +29,10 @@ class TheOracle(GenericAgent):
         card_idx = scores.get_best_card()
         return card_idx
 
-    async def opening_lead(self, contract: str) -> CardResp:
+    async def opening_lead(self, contract: str, dummy_hand_str: str) -> CardResp:
         declarer = PlayerPosition((self.__position__.value + 4 - 1) % 4)
         self.set_contract(contract, declarer)
+        self.__cardsets__[self.dummy_position.value] = card_to_index(dummy_hand_str)
         card_idx = self.choose_card()
         return CardResp(card=Card.from_code(card_idx), candidates=[], samples=[], shape=-1, hcp=-1, quality=None, who=None)
     

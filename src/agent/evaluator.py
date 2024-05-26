@@ -21,12 +21,7 @@ from agent.naive_agent import NaiveAgent
 from agent.oracle import TheOracle
 
 def log_subfolder(agent: AGENT_TYPES):
-    if isinstance(agent, NaiveAgent):
-        return "naive"
-    elif isinstance(agent, TheOracle):
-        return "oracle"
-    elif isinstance(agent, HumanAgent):
-        return "human"
+    return f"{agent}".lower()
 
 class AgentEvaluator:
     def __init__(self, file_name: str, board_no: int, deal_str: str, 

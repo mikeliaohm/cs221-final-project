@@ -59,6 +59,9 @@ class DDSEvaluator:
     def get_best_card(self) -> int:
         card = Card(CardSuit(self.scores.suit[0]), CardRank(self.scores.rank[0]))
         return CARD_INDEX_MAP[f"{card}"]
+    
+    def get_highest_scores(self) -> int:
+        return self.scores.score[0]
 
 if __name__ == "__main__":
     """

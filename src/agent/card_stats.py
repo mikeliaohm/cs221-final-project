@@ -160,7 +160,15 @@ class Card():
 
     def __hash__(self) -> int:
         return hash((self.suit, self.rank))
-
+    
+    def larger_than(self, other: "Card", trump_suit: CardSuit) -> bool:
+        if self.suit == other.suit:
+            return self.rank.value > other.rank.value
+        elif self.suit == trump_suit:
+            return True
+        else:
+            return False
+        
 class PlayerPosition(enum.Enum):
     NORTH = 0
     EAST = 1
@@ -184,6 +192,11 @@ class PlayerTurn():
     def __str__(self) -> str:
         return f"{self._cur_player}"
         
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, PlayerTurn):
+            return NotImplemented
+        return self._cur_player == other._cur_player
+
     def position(self) -> PlayerPosition:
         return self._cur_player
         
