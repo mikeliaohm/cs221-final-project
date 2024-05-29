@@ -121,6 +121,11 @@ class CSPAssignerV2:
             self._csp.add_binary_factor(f"{player}_{suit}_Hon", f"{player}_{suit}", prob_H_given_C)
 
     def add_evidence(self) -> None:
+        """        
+        Some magic numbers for the weights of the factors based on the 
+        compiled results from dataset in agent/boards/bids
+        The script used to parse the data in bids: assigners/parse_bid.py
+        """
         HONOR_CARDS_COUNT = {
             0: 36,
             1: 114, 
@@ -158,45 +163,6 @@ class CSPAssignerV2:
                     self._csp.add_variable(var_name, [0])
                 self._csp.add_variable(f"{var_name}_SHOWN", [0])
                 self._csp.add_binary_factor(f"{var_name}_SHOWN", var_name, lambda x, y: y == 0)
-
-    def add_prob_B_given_C_H(self) -> None:
-        """
-        Add factors of weights of assigning num_cards and honor cards in a suit to the Players.
-        These are sets of two binary factors. One for B and H and the other for B and C.
-        """
-        SMOOTH_FACTOR = 1
-        BIDDING_COUNT = 277
-        BIDDING_TABLE = {
-            (0, 1): 5,
-            (0, 2): 3,
-            (0, 3): 11,
-            (0, 4): 9,
-            (0, 5): 5,
-            (0, 6): 3,
-            (1, 1): 4,
-            (1, 2): 12,
-            (1, 3): 21,
-            (1, 4): 22,
-            (1, 5): 41,
-            (1, 6): 12,
-            (1, 7): 2,
-            (2, 2): 6,
-            (2, 4): 19,
-            (2, 5): 30,
-            (2, 6): 18,
-            (2, 7): 7,
-            (3, 4): 5,
-            (3, 5): 14,
-            (3, 6): 23,
-            (3, 7): 2,
-            (4, 5): 2,
-            (4, 6): 1
-        }
-
-        for player, (_, suit) in self._player_stats.items():
-            self._csp.add_binary_factor(f"{player}_{suit}_Bidding_Hon", 
-                                        f"{player}_{suit}_Bidding", 
-                                        lambda x, y: BIDDING_TABLE.get((x, y), 0) + SMOOTH_FACTOR)
 
     def assign_cards(self, verbose: bool = False) -> Dict[PlayerPosition, int]:
         """

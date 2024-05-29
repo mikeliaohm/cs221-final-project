@@ -47,7 +47,11 @@ First, move the logs from the game simulation from each of the agents to be comp
 Then run the following command to compile the results into two separate files that group together the performances of the three agents, baseline, minimax, and oracle.
 
 ```python
+# Compile data from the game results from individual files
 python agent/analyze.py --dir agent/logs/reports
+
+# Aggregate the performances differences between oracle and all other agents
+python agent/performance.py
 ```
 
 The pbn file has the format looks like the following.
