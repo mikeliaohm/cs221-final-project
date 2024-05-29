@@ -5,6 +5,7 @@ import logging
 
 from typing import List, Tuple
 
+from agent.card_stats import CardSuit
 import agent.conf
 from agent.evaluator import AgentEvaluator
 
@@ -395,17 +396,20 @@ class Driver:
                     card_players[1] = DummyAgent(self.hands[NORTH], NORTH, self.log, self.agent)
                     card_players[1].set_init_x_play(decl_hand, contract, decl_i)
                     card_players[3] = self.agent
+                    self.agent.set_auction(self.get_initial_bided_suit(auction))
                     agent_no = 3
 
                 # We are lefty
                 if i == (decl_i + 1) % 4:
                     # card_players[0] = self.factory.create_human_cardplayer(self.models, 0, lefty_hand, dummy_hand, contract, is_decl_vuln)
                     card_players[0] = self.agent
+                    self.agent.set_auction(self.get_initial_bided_suit(auction))
                     agent_no = 0
                 # We are righty
                 if i == (decl_i + 3) % 4:
                     # card_players[2] = self.factory.create_human_cardplayer(self.models, 2, righty_hand, dummy_hand, contract, is_decl_vuln)
                     card_players[2] = self.agent
+                    self.agent.set_auction(self.get_initial_bided_suit(auction))
                     agent_no = 2
 
         claimer = Claimer(self.verbose)
@@ -711,10 +715,21 @@ class Driver:
 
         # TODO: log the result a file
     
+    # Get the initial bided suit of each of the players
+    def get_initial_bided_suit(self, auction):
+        bided_suit = [None, None, None, None]
+        for idx, bid in enumerate(auction):
+            if bided_suit[idx % 4] is not None:
+                continue
+            if len(bid) >=2 and bid[1] in "CDHS":
+                bided_suit[idx % 4] = CardSuit.from_str(bid[1])
+        return bided_suit
+
     async def opening_lead(self, auction):
 
         contract = bidding.get_contract(auction)
         decl_i = bidding.get_decl_i(contract)
+        bided_suit = self.get_initial_bided_suit(auction)
 
         hands_str = self.deal_str.split()
 
@@ -724,6 +739,7 @@ class Driver:
         # Install the agent to open the lead
         if agent.conf.INSTALL_AGENT and (decl_i + 1) % 4 == 2:
             dummy_hand = hands_str[(decl_i + 2) % 4]
+            self.agent.set_auction(bided_suit)
             card_resp = await self.agent.opening_lead(self.contract, dummy_hand)
         # overwrite the default behavior of ben, agent will take care of the game 
         # if there is any.

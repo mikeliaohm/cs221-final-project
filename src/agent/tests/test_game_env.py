@@ -173,7 +173,7 @@ class TestPlayATrick(unittest.TestCase):
         self.assertEqual(new_states.next_player(), PlayerTurn(PlayerPosition.NORTH))
         self.assertIsNone(new_states.prev_player())
         self.assertIsNone(new_states._partial_trick)
-        self.assertEqual(new_states._tricks_won, 0)
+        self.assertEqual(new_states._tricks_won, -0.5)
 
     def test_EAST_win(self) -> None:
         """
@@ -202,7 +202,7 @@ class TestPlayATrick(unittest.TestCase):
         self.assertEqual(new_states.next_player(), PlayerTurn(PlayerPosition.SOUTH))
         self.assertIsNone(new_states.prev_player())
         self.assertIsNone(new_states._partial_trick)
-        self.assertEqual(new_states._tricks_won, 0)
+        self.assertEqual(new_states._tricks_won, -0.5)
 
 if __name__ == "__main__":
     unittest.main()

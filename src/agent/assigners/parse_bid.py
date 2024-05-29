@@ -1,14 +1,6 @@
 import re
 from collections import defaultdict
 
-import re
-from collections import defaultdict
-
-import re
-from collections import defaultdict
-
-import re
-
 def parse_pbn_auction(file_path):
     with open(file_path, 'r') as file:
         pbn_contents = file.read()
@@ -87,10 +79,12 @@ def analyze_bid_suit_presence(parsed_data):
     return bid_suit_presence
 
 # Example usage:
-file_path = './agent/boards/tournaments/A1A10101.PBN'
+file_path = './agent/boards/bids/A1A10101_0202.PBN'
 parsed_auction_data = parse_pbn_auction(file_path)
 bid_suit_presence = analyze_bid_suit_presence(parsed_auction_data)
 
 import json
 print(json.dumps(parsed_auction_data[:1], indent=2))
+for key, value in bid_suit_presence.items():
+    print(key, value)
 # print(json.dumps(bid_suit_presence, indent=2))

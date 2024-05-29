@@ -68,6 +68,9 @@ class GenericAgent:
         self.__contract__ = None
         self.n_tricks_taken: int = 0
         self.__verbose__ = verbose
+        self._shown_out_suits: Dict[PlayerPosition, Set[CardSuit]] = {
+            PlayerPosition.NORTH: set(), PlayerPosition.EAST: set(), 
+            PlayerPosition.SOUTH: set(), PlayerPosition.WEST: set()}
 
     @property
     def __cards__(self) -> CardSet:
@@ -221,6 +224,12 @@ class GenericAgent:
     def set_real_card_played(self, opening_lead52: int, player_i: int) -> None:
         seat = ((self.__contract__.declarer.value + 1) % 4 + player_i) % 4
         position = PlayerPosition(seat)
+        if len(self.__played__) > 0 and len(self.__played__[-1]) < 4:
+            lead_suit = CardSuit.from_card_idx(self.__played__[-1][0][1])
+            played_suit = CardSuit.from_card_idx(opening_lead52)
+            if played_suit != lead_suit:
+                self._shown_out_suits[position].add(lead_suit)
+
         append_trick(self.__played__, position, opening_lead52)
     
     def set_card_played(self, trick_i: int, leader_i: int, i: int, card: int) -> None:
@@ -270,7 +279,9 @@ class GenericAgent:
     def set_contract(self, contract: str, declarer: int) -> None:
         self.__contract__ = Contract.from_str(contract, PlayerPosition(declarer))
 
-    
+    def set_auction(self, bided_suit: List[CardSuit]) -> None:
+        self.__bided_suit__ = bided_suit
+
     """
     =================================================================================
     The section below defines methods used collect the unseen cards.

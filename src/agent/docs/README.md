@@ -27,6 +27,29 @@ python -m unittest agent/tests/test_cardset.py
 python -m unittest discover -s agent/tests/
 ```
 
+## Analyze the performance of various agents
+
+First, move the logs from the game simulation from each of the agents to be compared. For example, we will put the results from the three agents in the folder of agent/logs such that
+
+```text
+-- reports
+   -- baseline
+      -- result1.json
+      -- result2.json
+   -- minimax
+      -- result1.json
+      -- result2.json
+   -- oracle
+      -- result1.json
+      -- result2.json
+```
+
+Then run the following command to compile the results into two separate files that group together the performances of the three agents, baseline, minimax, and oracle.
+
+```python
+python agent/analyze.py --dir agent/logs/reports
+```
+
 The pbn file has the format looks like the following.
 
 ## Card to Index Mapping

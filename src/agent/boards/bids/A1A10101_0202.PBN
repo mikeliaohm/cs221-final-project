@@ -1,0 +1,2903 @@
+% PBN 1.0
+% EXPORT
+%
+[Event "17th European Youth Team Championships"]
+[Site "Antalya, Turkey TRK"]
+[Date "2000.07.06"]
+[Board "1"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:52.J76.KQJ874.T9 AK3.T9854.T.K832 Q976.Q.9632.QJ74 JT84.AK32.A5.A65"]
+[Declarer "E"]
+[Contract "4H"]
+[Result "11"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -450"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "N"]
+3D Pass 4D X
+Pass 4H Pass Pass
+Pass
+[Play "S"]
+D3 DA D4 DT
+HQ HA H6 H4
+D2 HK H7 HT
+S7 S4 S2 SA
+S6 SJ S5 S3
+S9 S8 D7 SK
+C7 CA CT C2
+D6 D5 DJ H9
+C4 C5 C9 CK
+D9 H2 HJ H5
+CJ C6 DK H8
+CQ H3 D8 C8
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "1"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:52.J76.KQJ874.T9 AK3.T9854.T.K832 Q976.Q.9632.QJ74 JT84.AK32.A5.A65"]
+[Declarer "N"]
+[Contract "3DX"]
+[Result "8"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+Pass 1H Pass 2NT
+3D X Pass Pass
+Pass
+[Play "E"]
+HT HQ - -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "2"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:Q73.KQJT3.Q32.76 KJT.875.6.AKJT42 85.9642.AKT84.Q5 A9642.A.J975.983"]
+[Declarer "N"]
+[Contract "4S"]
+[Result "11"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 650"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "E"]
+Pass 2C 2D 2S
+X 4S Pass Pass
+Pass
+[Play "E"]
+HK H5 H9 HA
+S3 SK S5 S2
+SQ ST S8 S4
+HQ H7 H2 S6
+C7 C2 C5 C9
+S7 SJ D4 SA
+C6 CA CQ C3
+- CK H4 C8
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "2"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:Q73.KQJT3.Q32.76 KJT.875.6.AKJT42 85.9642.AKT84.Q5 A9642.A.J975.983"]
+[Declarer "N"]
+[Contract "4S"]
+[Result "11"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 650"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+Pass 2C Pass 2S
+Pass 4S Pass Pass
+Pass
+[Play "E"]
+HK - - -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "3"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:A96.7.AKQJ53.A65 843.A3.84.KT9872 KJT5.8642.T76.J3 Q72.KQJT95.92.Q4"]
+[Declarer "S"]
+[Contract "3NT"]
+[Result "9"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 400"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "S"]
+1C X Pass 2H
+X 3C 3S Pass
+3NT Pass Pass Pass
+[Play "W"]
+C9 C3 CQ CA
+D4 D6 D2 DA
+D8 DT D9 D3
+H3 D7 HK DQ
+C2 H2 H5 DK
+C7 H4 H9 DJ
+S4 H6 HT D5
+S3 S5 S2 SA
+S8 SK S7 S6
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "3"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:A96.7.AKQJ53.A65 843.A3.84.KT9872 KJT5.8642.T76.J3 Q72.KQJT95.92.Q4"]
+[Declarer "N"]
+[Contract "5D"]
+[Result "11"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 400"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+1C Pass 1D 1H
+2D Pass 2H Pass
+3S Pass 5D Pass
+Pass Pass
+[Play "E"]
+HK H7 H3 H2
+CQ CA C2 C3
+C4 C5 CK CJ
+H5 C6 C7 DT
+D2 DA D4 D6
+D9 DK D8 D7
+H9 DQ C9 ST
+HT D3 C8 H4
+HJ D5 CT H8
+S2 S6 S3 SK
+S7 S9 S4 S5
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "4"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:J864.AQJ987.KQ.7 A2.4.86432.A9654 T95.K52.T95.KQJ3 KQ73.T63.AJ7.T82"]
+[Declarer "W"]
+[Contract "3H"]
+[Result "8"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 100"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "W"]
+1H Pass 2H Pass
+3C Pass 3H Pass
+Pass Pass
+[Play "N"]
+D8 D5 DA DQ
+SA S5 SK S6
+S2 S9 SQ SJ
+H4 ST S3 S4
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "4"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:J864.AQJ987.KQ.7 A2.4.86432.A9654 T95.K52.T95.KQJ3 KQ73.T63.AJ7.T82"]
+[Declarer "W"]
+[Contract "4HX"]
+[Result "8"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 500"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+1H Pass 2H Pass
+3D Pass 4H Pass
+Pass X Pass Pass
+Pass
+[Play "N"]
+SA S5 S3 S6
+S2 S9 SQ S4
+D8 D5 DA DQ
+C4 ST SK S8
+D2 D9 D7 DK
+H4 H2 H3 HA
+C5 H5 H6 HQ
+D3 HK HT H9
+CA CK CT C7
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "5"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:AKT9.KJ2.A7.A862 Q83.A64.T983.J43 765.5.J6542.KQT7 J42.QT9873.KQ.95"]
+[Declarer "N"]
+[Contract "3NT"]
+[Result "9"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 600"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "N"]
+1C Pass 1D 2H
+Pass Pass X Pass
+3NT Pass Pass Pass
+[Play "E"]
+H4 H5 HQ HK
+C4 CK C5 C2
+SQ S5 S4 ST
+C3 C7 C9 CA
+CJ CQ H3 C6
+S8 S6 S2 SA
+D9 CT H7 C8
+S3 S7 SJ SK
+D3 D2 H8 S9
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "5"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:AKT9.KJ2.A7.A862 Q83.A64.T983.J43 765.5.J6542.KQT7 J42.QT9873.KQ.95"]
+[Declarer "W"]
+[Contract "3HX"]
+[Result "6"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 500"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+1C Pass 1D 2H
+Pass 3H X Pass
+Pass Pass
+[Play "N"]
+SA S3 S7 S4
+DA D3 D6 DQ
+D7 D8 D4 DK
+H2 HA H5 H7
+HJ H4 S6 HT
+HK H6 D5 H3
+CA C3 C7 C9
+SK S8 S5 S2
+C2 C4 CQ C5
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "6"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:AJ83.QJ743.AT.A3 Q95.9.QJ63.J8752 T7.KT865.K9542.Q K642.A2.87.KT964"]
+[Declarer "W"]
+[Contract "5H"]
+[Result "11"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -650"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "E"]
+1C 1NT 2H 5C
+5H Pass Pass Pass
+[Play "N"]
+D8 DA D3 D5
+HA HQ H9 H8
+D7 DT DJ DK
+H2 H3 C8 HK
+S2 SJ SQ S7
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "6"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:AJ83.QJ743.AT.A3 Q95.9.QJ63.J8752 T7.KT865.K9542.Q K642.A2.87.KT964"]
+[Declarer "E"]
+[Contract "4H"]
+[Result "11"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -650"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+1H Pass 4H Pass
+Pass Pass
+[Play "S"]
+DQ D2 D7 DA
+H9 H5 HA HJ
+S5 S7 S4 SA
+C5 H6 H2 HQ
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "7"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:94.KQ52.986532.3 J852.T64.KJ.AK95 AKQ76.J87.AT74.2 T3.A93.Q.QJT8764"]
+[Declarer "W"]
+[Contract "3NT"]
+[Result "9"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -600"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "S"]
+Pass 1D 1S 2C
+Pass 3C Pass 3S
+Pass 3NT Pass Pass
+Pass
+[Play "N"]
+SQ S3 S9 S5
+SK ST S4 S2
+SA H3 H2 S8
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "7"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:94.KQ52.986532.3 J852.T64.KJ.AK95 AKQ76.J87.AT74.2 T3.A93.Q.QJT8764"]
+[Declarer "W"]
+[Contract "5CX"]
+[Result "9"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 500"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+Pass 1C 1S 5C
+Pass Pass X Pass
+Pass Pass
+[Play "N"]
+SA S3 S4 S2
+SK ST S9 SJ
+H7 H3 HQ H6
+DA DQ D3 DK
+HJ HA H2 H4
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "8"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:AJ.K8.654.AKJT64 K842.6542.K7.532 Q976.J73.QJ832.9 T53.AQT9.AT9.Q87"]
+[Declarer "W"]
+[Contract "2C"]
+[Result "9"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -110"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "W"]
+1C Pass 1D Pass
+2C Pass Pass Pass
+[Play "N"]
+S4 S6 ST SJ
+C2 C9 C7 CA
+C3 D2 C8 CK
+C5 D3 CQ CT
+H6 H3 HQ HK
+- - - D4
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "8"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:AJ.K8.654.AKJT64 K842.6542.K7.532 Q976.J73.QJ832.9 T53.AQT9.AT9.Q87"]
+[Declarer "W"]
+[Contract "2NT"]
+[Result "8"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -120"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+1C Pass 1S Pass
+2C Pass Pass X
+Pass 2H Pass Pass
+2NT Pass Pass Pass
+[Play "N"]
+DK D2 D9 D5
+S4 S6 ST SJ
+C5 C9 CQ C4
+H6 HJ HT H8
+S2 S7 S5 SA
+C3 H3 C7 CA
+C2 H7 C8 CK
+H5 D3 DT CJ
+H2 D8 H9 CT
+D7 DJ - C6
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "9"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:T92.A9763.Q2.J94 QJ4.2.A8743.AK75 A65.QJ854.65.Q32 K873.KT.KJT9.T86"]
+[Declarer "W"]
+[Contract "3NT"]
+[Result "8"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 100"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "N"]
+Pass 2D Pass 2H
+Pass 2S Pass 3D
+Pass 3S Pass 3NT
+Pass Pass Pass
+[Play "N"]
+H6 H2 HJ HK
+ST SQ SA S3
+HA C5 H4 HT
+H7 D3 HQ D9
+H9 D4 H8 C6
+H3 D7 H5 CT
+- - S5 S7
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "9"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:T92.A9763.Q2.J94 QJ4.2.A8743.AK75 A65.QJ854.65.Q32 K873.KT.KJT9.T86"]
+[Declarer "S"]
+[Contract "3H"]
+[Result "7"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+Pass 1D 1H X
+3H Pass Pass Pass
+[Play "W"]
+DJ D2 D3 D5
+D9 DQ DA D6
+C8 C4 CK C3
+S3 S2 SQ SA
+HK HA ^R D4 H4
+SK S9 S4 S5
+S7 ST SJ S6
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "10"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:K72.96542.T4.K65 A863.J8.A8.QJT84 QT4.T.KQJ9652.92 J95.AKQ73.73.A73"]
+[Declarer "N"]
+[Contract "4H"]
+[Result "7"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -300"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "E"]
+Pass 2C 3D 3H
+Pass 3S Pass 4C
+Pass 4H Pass Pass
+Pass
+[Play "E"]
+DT DA DK D3
+H2 HJ HT H3
+H4 H8 D6 HA
+S7 SA S4 S5
+CK CQ C2 C3
+D4 D8 DQ D7
+C6 S3 DJ HQ
+H5 S6 D2 HK
+C5 C4 C9 CA
+H6 C8 D5 C7
+SK S8 ST S9
+H9 CT D9 H7
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "10"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:K72.96542.T4.K65 A863.J8.A8.QJT84 QT4.T.KQJ9652.92 J95.AKQ73.73.A73"]
+[Declarer "N"]
+[Contract "4HX"]
+[Result "8"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -500"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+Pass 2C 3D 3H
+Pass 3S Pass 4C
+Pass 4H Pass Pass
+X Pass Pass Pass
+[Play "E"]
+DT D8 DJ D3
+SK SA S4 S5
+C5 CQ C2 C7
+CK CJ C9 C3
+C6 C4 HT CA
+S2 S3 SQ S9
+S7 S6 ST SJ
+H2 HJ D5 H3
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "11"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:KT6.AT2.K965.QJ4 AQ8.KQJ4.T8732.8 97542.8765.A.K72 J3.93.QJ4.AT9653"]
+[Declarer "E"]
+[Contract "2D"]
+[Result "10"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -130"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "S"]
+1NT 2C Pass 2D
+Pass Pass Pass
+[Play "S"]
+CQ C8 C2 CA
+H2 HK H8 H3
+HA HQ H5 H9
+C4 D2 C7 C3
+HT HJ H6 S3
+S6 SA S7 SJ
+ST S8 S2 D4
+CJ D3 CK C5
+SK SQ S4 DJ
+D5 D7 DA C9
+DK H4 H7 DQ
+D6 D8 - -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "11"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:KT6.AT2.K965.QJ4 AQ8.KQJ4.T8732.8 97542.8765.A.K72 J3.93.QJ4.AT9653"]
+[Declarer "N"]
+[Contract "3S"]
+[Result "8"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -50"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+1D Pass 1S Pass
+1NT Pass 2H Pass
+2S Pass Pass 3C
+3S Pass Pass Pass
+[Play "E"]
+DQ D5 D8 DA
+S3 ST SQ S2
+C3 CJ C8 C7
+D4 DK D3 C2
+CA C4 D2 CK
+C5 CQ S8 S9
+SJ SK SA S5
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "12"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:KQJ64.QT975.KQ.4 T32.2.T8432.J976 A85.J8.96.AKT832 97.AK643.AJ75.Q5"]
+[Declarer "W"]
+[Contract "4S"]
+[Result "10"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -420"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "W"]
+1S Pass 2H X
+4S Pass Pass Pass
+[Play "N"]
+H2 H8 HK H5
+D8 HJ HA H7
+D2 D6 DA DQ
+D3 D9 D5 DK
+S2 SA S7 S4
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "12"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:KQJ64.QT975.KQ.4 T32.2.T8432.J976 A85.J8.96.AKT832 97.AK643.AJ75.Q5"]
+[Declarer "W"]
+[Contract "4S"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -420"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+1S Pass 2C Pass
+2H Pass 4S Pass
+Pass Pass
+[Play "N"]
+H2 H8 HK HT
+D8 HJ HA H5
+D2 D6 DA DQ
+D3 D9 D5 DK
+ST S5 S7 SK
+S3 SA S9 S4
+- S8 - -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "13"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:75.KJ43.QJT3.AKT AKQ864.A2.K4.J32 J9.9865.982.Q976 T32.QT7.A765.854"]
+[Declarer "E"]
+[Contract "4S"]
+[Result "9"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 100"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "N"]
+1NT X 2C Pass
+Pass 2S Pass 3S
+Pass 4S Pass Pass
+Pass
+[Play "S"]
+C7 C4 CK C3
+C6 C5 CA C2
+CQ C8 CT CJ
+D9 D5 DT DK
+S9 S2 S5 SA
+SJ S3 S7 SK
+C9 ST H3 SQ
+D2 H7 H4 S4
+D8 D6 DJ S6
+H6 HT HJ S8
+H5 DA D3 D4
+H8 HQ HK HA
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "13"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:75.KJ43.QJT3.AKT AKQ864.A2.K4.J32 J9.9865.982.Q976 T32.QT7.A765.854"]
+[Declarer "E"]
+[Contract "4S"]
+[Result "9"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+1NT X 2C Pass
+Pass 2S Pass 3S
+Pass 4S Pass Pass
+Pass
+[Play "S"]
+C7 C4 CK C2
+C6 C5 CA C3
+CQ C8 CT CJ
+D9 D5 DT DK
+S9 S2 S7 SQ
+SJ S3 S5 SA
+C9 ST H4 S4
+H5 HQ HK HA
+H6 D6 - SK
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "14"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:T875.86.QT63.J93 Q62.Q97.A9854.QT A3.J432.KJ72.K75 KJ94.AKT5..A8642"]
+[Declarer "N"]
+[Contract "3C"]
+[Result "10"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 130"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "E"]
+Pass Pass 1NT 2C
+Pass 2D Pass 3C
+Pass Pass Pass
+[Play "E"]
+C3 CT CK CA
+C9 CQ C5 C2
+S5 S2 S3 SK
+CJ D4 C7 C6
+D6 D5 DK C4
+H6 H7 H2 HA
+H8 H9 H3 HK
+D3 HQ H4 H5
+DT DA D2 HT
+S7 SQ SA S4
+DQ - HJ C8
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "14"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:T875.86.QT63.J93 Q62.Q97.A9854.QT A3.J432.KJ72.K75 KJ94.AKT5..A8642"]
+[Declarer "W"]
+[Contract "3DX"]
+[Result "7"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 300"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+Pass Pass 1D X
+3D X Pass Pass
+Pass
+[Play "N"]
+HA H6 H9 H4
+S4 S8 SQ SA
+SJ S5 S2 S3
+C2 C3 CT CK
+HT H8 HQ H3
+C6 C9 CQ C7
+S9 S7 S6 D2
+H5 D3 H7 H2
+SK ST D8 DJ
+HK DT DA HJ
+C4 - D4 D7
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "15"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:J753.J862..AJ872 Q.AK9543.K7532.Q KT642.Q.Q864.KT5 A98.T7.AJT9.9643"]
+[Declarer "E"]
+[Contract "5D"]
+[Result "10"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 50"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "S"]
+Pass 1H Pass 1NT
+Pass 2C Pass 2D
+Pass 3D Pass 5D
+Pass Pass Pass
+[Play "S"]
+CA CQ C5 C3
+S3 SQ SK SA
+H6 HA HQ H7
+H2 HK D4 HT
+C2 D2 D6 DJ
+C7 D3 CT C4
+H8 H3 CK D9
+S5 D5 S2 S8
+HJ H4 S4 DT
+S7 D7 S6 S9
+C8 H5 D8 DA
+CJ DK ST C6
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "15"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:J753.J862..AJ872 Q.AK9543.K7532.Q KT642.Q.Q864.KT5 A98.T7.AJT9.9643"]
+[Declarer "W"]
+[Contract "4H"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -420"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+Pass 1H Pass 1NT
+Pass 2H Pass 3H
+Pass 4H Pass Pass
+Pass
+[Play "N"]
+S4 SA S7 SQ
+HQ HT HJ HK
+S2 H7 H2 HA
+S6 C3 H6 H9
+D4 DA H8 D2
+SK S8 S3 H3
+DQ D9 C2 D3
+ST S9 S5 H4
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "16"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:T3.652.KJ4.A9875 Q87654.987.Q3.43 KJ2.AQ.A976.QJ62 A9.KJT43.T852.KT"]
+[Declarer "E"]
+[Contract "3NT"]
+[Result "10"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -630"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "W"]
+Pass Pass 1C 1H
+X 2H Pass Pass
+3C Pass 3NT Pass
+Pass Pass
+[Play "S"]
+HJ H2 H9 HQ
+CK CA C3 CQ
+CT C9 C4 CJ
+H3 C8 S8 C2
+D5 DJ D3 D6
+D2 DK DQ D7
+D8 D4 S7 DA
+H4 C7 S6 C6
+HT C5 H8 D9
+SA S3 S4 SK
+DT H5 H7 S2
+HK H6 S5 HA
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "16"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:T3.652.KJ4.A9875 Q87654.987.Q3.43 KJ2.AQ.A976.QJ62 A9.KJT43.T852.KT"]
+[Declarer "E"]
+[Contract "3NT"]
+[Result "12"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -690"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+Pass 2S 2NT Pass
+3NT Pass Pass Pass
+[Play "S"]
+HK H2 H9 HA
+CK CA C3 CJ
+CT C5 C4 CQ
+H3 C7 S8 C2
+D2 C8 H8 C6
+D5 C9 S4 D7
+SA ST S5 S2
+HJ H5 H7 HQ
+D8 D4 D3 DA
+DT DK DQ D6
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "17"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:T65.653.KQT5.KT8 AKQ82.KT8.74.Q94 J743.Q74.82.AJ52 9.AJ92.AJ963.763"]
+[Declarer "W"]
+[Contract "3NT"]
+[Result "9"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -400"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "N"]
+Pass 1S Pass 1NT
+Pass 2C Pass 2D
+Pass 2NT Pass 3NT
+Pass Pass Pass
+[Play "N"]
+DQ D4 D8 D3
+H6 H8 HQ HA
+S5 SA S7 S9
+S6 SK S3 D6
+ST S2 SJ C3
+D5 D7 D2 DA
+H3 HK H4 H2
+- S8 - -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "17"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:T65.653.KQT5.KT8 AKQ82.KT8.74.Q94 J743.Q74.82.AJ52 9.AJ92.AJ963.763"]
+[Declarer "W"]
+[Contract "3NT"]
+[Result "9"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -400"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+Pass 1S Pass 1NT
+Pass 2C Pass 2NT
+Pass 3NT Pass Pass
+Pass
+[Play "N"]
+DK D4 D8 D3
+H3 HT HQ HA
+S5 S2 SJ S9
+D5 D7 D2 DA
+H5 HK H4 H2
+S6 SA S3 D6
+^R C8 SK S4 D9
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "18"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:AT762.J8.K8.T643 93.AQ743.T97.Q72 KJ.KT9652.A3.K85 Q854..QJ6542.AJ9"]
+[Declarer "W"]
+[Contract "2H"]
+[Result "9"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS -140"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "E"]
+Pass Pass 1H X
+1S Pass 2H Pass
+Pass Pass
+[Play "N"]
+DQ DK D7 D3
+D2 HJ H3 H2
+D4 H8 HA H5
+D5 D8 DT DA
+S4 S2 S9 SK
+S5 SA S3 SJ
+S8 S6 C7 H6
+C9 C3 CQ C5
+CJ C4 C2 C8
+DJ C6 D9 H9
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "18"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:AT762.J8.K8.T643 93.AQ743.T97.Q72 KJ.KT9652.A3.K85 Q854..QJ6542.AJ9"]
+[Declarer "E"]
+[Contract "2S"]
+[Result "6"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+2S Pass Pass Pass
+[Play "S"]
+DT D3 D2 DK
+S3 SJ SQ S2
+D7 DA D4 D8
+HQ H2 D5 HJ
+S9 SK S4 S6
+HA H5 D6 H8
+D9 H6 DQ S7
+H3 H9 S5 SA
+H4 C5 S8 ST
+C2 CK CA C3
+- - DJ -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "19"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:AQ.KQJ5.J8.QT532 KJ.74.AT762.AJ86 T86532.AT8.KQ4.9 974.9632.953.K74"]
+[Declarer "N"]
+[Contract "2S"]
+[Result "10"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 170"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "S"]
+2C Pass 2S Pass
+Pass Pass
+[Play "E"]
+H3 H5 H7 HT
+S7 SA SJ S2
+S4 SQ SK S3
+C4 C2 CA C9
+D9 DJ D6 D4
+C7 C3 C6 S5
+S9 - - ST
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "19"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:AQ.KQJ5.J8.QT532 KJ.74.AT762.AJ86 T86532.AT8.KQ4.9 974.9632.953.K74"]
+[Declarer "N"]
+[Contract "4S"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 420"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+1NT 2D 4D Pass
+4H Pass 4S Pass
+Pass Pass
+[Play "E"]
+C4 C2 CA C9
+C7 C3 C6 S2
+S4 SQ SK S3
+D9 D8 D2 DK
+S7 SA SJ S5
+H2 H5 H4 HT
+S9 C5 D6 ST
+D3 DJ DA D4
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.06"]
+[Board "20"]
+[West "Nystrom F"]
+[North "Haraldsson S"]
+[East "Stromberg P"]
+[South "Halldorsson G"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:J74.A5.AJT653.T2 98.K84.974.AQ873 653.QJT7632.8.K9 AKQT2.9.KQ2.J654"]
+[Declarer "S"]
+[Contract "4S"]
+[Result "10"]
+[HomeTeam "Iceland"]
+[Room "Open"]
+[Round "1"]
+[Score "NS 620"]
+[Section "Junior Teams"]
+[Table "12"]
+[VisitTeam "Sweden"]
+[Auction "W"]
+2D Pass Pass 2S
+Pass 3C Pass 3D
+Pass 3S Pass 4S
+Pass Pass Pass
+[Play "W"]
+HA H4 HQ H9
+H5 H8 HJ S2
+S4 S8 S6 SA
+S7 S9 S3 SK
+SJ D4 S5 SQ
+C2 CQ CK C4
+DA D7 D8 DK
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "20"]
+[West "Stefansson F"]
+[North "Eliazohn N"]
+[East "Thorsson P"]
+[South "Melander M"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:J74.A5.AJT653.T2 98.K84.974.AQ873 653.QJT7632.8.K9 AKQT2.9.KQ2.J654"]
+[Declarer "N"]
+[Contract "3NT"]
+[Result "5"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -400"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+Pass Pass 3H 3S
+Pass 3NT Pass Pass
+Pass
+[Play "E"]
+HQ H9 HA H4
+H2 D2 H5 HK
+S3 SA S4 S8
+C9 CJ C2 CA
+CK C4 CT C3
+HJ C5 D3 H8
+HT S2 D5 D4
+H7 ST S7 S9
+S6 SQ SJ -
+*
+
+% PBN 1.0
+% EXPORT
+%
+[Event "17th European Youth Team Championships"]
+[Site "Antalya, Turkey TRK"]
+[Date "2000.07.07"]
+[Board "1"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:KT4.A9.K86.KJ962 A82.876543.9.754 J3.KT.AQ7532.AT3 Q9765.QJ2.JT4.Q8"]
+[Declarer "S"]
+[Contract "3NT"]
+[Result "12"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 490"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "N"]
+1C 2H 3D Pass
+3H X 3NT Pass
+Pass Pass
+[Play "W"]
+HQ HA H8 HT
+C8 C2 C5 CA
+CQ CK C7 CT
+D4 D6 D9 DA
+DJ DK C4 D3
+- D8 H3 -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "1"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:KT4.A9.K86.KJ962 A82.876543.9.754 J3.KT.AQ7532.AT3 Q9765.QJ2.JT4.Q8"]
+[Declarer "N"]
+[Contract "3NT"]
+[Result "13"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 520"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+1C Pass 1D Pass
+1NT Pass 3NT Pass
+Pass Pass
+[Play "E"]
+H8 HK H2 H9
+D9 DA D4 D6
+C4 CA C8 C2
+C5 CT CQ CK
+C7 C3 S5 CJ
+H3 S3 S6 C9
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "2"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:K852.T75.J5.JT87 T6.Q3.KT842.AK93 A943.98642.Q3.Q6 QJ7.AKJ.A976.542"]
+[Declarer "N"]
+[Contract "3NT"]
+[Result "11"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 660"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "E"]
+Pass 1D 2D X
+2S Pass Pass 3NT
+Pass Pass Pass
+[Play "E"]
+H5 H3 H9 HK
+D5 D2 D3 DA
+DJ DK DQ D7
+HT D4 H8 D9
+S2 ST SA S7
+SK S6 S3 SQ
+S5 C3 S4 SJ
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "2"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:K852.T75.J5.JT87 T6.Q3.KT842.AK93 A943.98642.Q3.Q6 QJ7.AKJ.A976.542"]
+[Declarer "S"]
+[Contract "3NT"]
+[Result "11"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 660"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+Pass 1D Pass 2D
+Pass 2NT Pass 3NT
+Pass Pass Pass
+[Play "W"]
+H9 HA H7 H3
+D3 D6 D5 DK
+DQ DA DJ D2
+H6 D7 S2 D4
+H4 D9 H5 DT
+H2 C2 HT D8
+S3 S7 SK ST
+CQ C4 CJ CA
+SA SJ S5 S6
+C6 C5 CT CK
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "3"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:532.AQ8.852.K543 T94.T.T43.AQ9862 J.KJ642.AQ976.T7 AKQ876.9753.KJ.J"]
+[Declarer "E"]
+[Contract "4S"]
+[Result "8"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 200"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "S"]
+Pass 3C Pass 3S
+Pass 4S Pass Pass
+Pass
+[Play "S"]
+S2 S4 SJ SA
+C3 CA C7 CJ
+C4 C2 CT SK
+S3 S9 H6 S6
+C5 C6 D7 S8
+HQ HT H2 H5
+S5 ST H4 S7
+D2 D3 D9 DK
+H8 D4 HJ H3
+D5 DT DA DJ
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "3"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:532.AQ8.852.K543 T94.T.T43.AQ9862 J.KJ642.AQ976.T7 AKQ876.9753.KJ.J"]
+[Declarer "E"]
+[Contract "4S"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -620"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+Pass Pass 1H 1S
+2H 2S 4H 4S
+Pass Pass Pass
+[Play "S"]
+HA HT H6 H3
+S2 S4 SJ SQ
+H8 S9 H2 H5
+C3 CA C7 CJ
+C4 C2 CT S6
+HQ ST H4 H7
+D2 D3 DA DJ
+D8 D4 HK H9
+D5 - HJ SA
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "4"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:K93.QJT.642.K862 842.972.A93.A943 AQT7.K8653.J.J75 J65.A4.KQT875.QT"]
+[Declarer "N"]
+[Contract "3D"]
+[Result "9"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 110"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "W"]
+Pass Pass 2D 2S
+X 3D Pass Pass
+Pass
+[Play "E"]
+SA S5 S3 S4
+DJ DK D2 D3
+C5 CQ C2 C3
+H3 D5 D4 DA
+H5 DQ D6 D9
+- DT HQ S2
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "4"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:K93.QJT.642.K862 842.972.A93.A943 AQT7.K8653.J.J75 J65.A4.KQT875.QT"]
+[Declarer "E"]
+[Contract "3H"]
+[Result "9"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -140"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+Pass Pass 1H 2D
+2H 2NT 3H Pass
+Pass Pass
+[Play "S"]
+DK D2 D3 DJ
+D8 D4 DA H3
+H4 HT H2 H5
+HA HJ H7 H6
+DT D6 D9 H8
+S5 S3 S2 SA
+S6 SK S4 S7
+SJ S9 S8 SQ
+CQ CK CA C5
+D5 HQ H9 HK
+D7 C2 C3 ST
+CT C6 C4 CJ
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "5"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:K9743.QT94.A96.8 AT86.765.Q754.K6 .AK83.JT82.Q9542 QJ52.J2.K3.AJT73"]
+[Declarer "E"]
+[Contract "1NT"]
+[Result "7"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS -90"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "N"]
+Pass Pass Pass 1C
+1S 1NT Pass Pass
+Pass
+[Play "S"]
+H3 H2 H9 H7
+H8 HJ HQ H6
+HK C3 HT H5
+HA C7 H4 D4
+DJ D3 D6 DQ
+C2 CJ C8 C6
+C4 SQ S3 S6
+C5 SJ SK SA
+C9 CA D9 CK
+D2 S2 S7 S8
+CQ - - ST
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "5"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:K9743.QT94.A96.8 AT86.765.Q754.K6 .AK83.JT82.Q9542 QJ52.J2.K3.AJT73"]
+[Declarer "S"]
+[Contract "4H"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 620"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+Pass Pass 1C 1S
+X 2S 3D Pass
+3NT X 4H Pass
+Pass Pass
+[Play "W"]
+SQ S3 S6 H3
+D3 D6 DQ D8
+DK DA D7 D2
+S2 S4 S8 H8
+C3 D9 D4 DT
+H2 H4 D5 DJ
+CT C8 C6 C2
+S5 S7 ST HK
+C7 H9 CK C4
+SJ S9 SA HA
+CJ HT H5 C5
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "6"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:KQT94.Q982.8.T62 J5.KT765.AT97.Q9 83.AJ3.Q642.K743 A762.4.KJ53.AJ85"]
+[Declarer "E"]
+[Contract "2S"]
+[Result "6"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 200"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "E"]
+2D Pass 2H X
+2S Pass Pass Pass
+[Play "S"]
+CQ C3 C5 C6
+C9 C4 CJ C2
+S5 C7 C8 CT
+H7 H3 H4 H9
+SJ S3 SA SK
+DA D2 D5 D8
+H6 HJ S2 H2
+- - CA -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "6"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:KQT94.Q982.8.T62 J5.KT765.AT97.Q9 83.AJ3.Q642.K743 A762.4.KJ53.AJ85"]
+[Declarer "N"]
+[Contract "2H"]
+[Result "6"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+Pass 2D Pass 2H
+Pass Pass Pass
+[Play "E"]
+SK S5 S8 S6
+SQ SJ S3 SA
+D8 DA D4 D3
+C2 CQ CK CA
+C6 C9 C3 CJ
+CT H5 C4 C5
+H2 D7 D2 DK
+ST D9 C7 S2
+S9 H6 HJ S7
+S4 DT DQ D5
+H8 HT D6 DJ
+HQ H7 H3 H4
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "7"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:T3.Q973.9874.JT5 Q52.KJ4.AT3.Q642 AK87.T.KJ652.AK3 J964.A8652.Q.987"]
+[Declarer "N"]
+[Contract "2D"]
+[Result "9"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 110"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "S"]
+Pass 1C X 1H
+Pass 1NT 2D Pass
+Pass Pass
+[Play "E"]
+C7 CJ CQ CA
+S4 S3 S5 SA
+S6 ST S2 SK
+S9 D9 SQ S8
+DQ D4 D3 DJ
+C9 CT C6 C3
+H2 D7 DA D2
+H5 D8 DT DK
+H6 H3 HJ HT
+C8 - C4 CK
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "7"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:T3.Q973.9874.JT5 Q52.KJ4.AT3.Q642 AK87.T.KJ652.AK3 J964.A8652.Q.987"]
+[Declarer "N"]
+[Contract "3D"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 130"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+Pass Pass 1D Pass
+Pass 1NT X 2H
+Pass Pass 2S Pass
+3D Pass Pass Pass
+[Play "E"]
+C9 CJ CQ CA
+S6 S3 S2 SK
+S4 ST S5 SA
+S9 D4 SQ S7
+DQ D7 D3 DK
+C7 CT C2 C3
+H2 D8 DA D2
+HA H3 H4 HT
+H5 HQ HK D5
+SJ D9 DT S8
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "8"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:64.KQ6.96432.QJT KQT87.92.KJT.A84 J.AT8753.Q87.K62 A9532.J4.A5.9753"]
+[Declarer "N"]
+[Contract "3S"]
+[Result "9"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 140"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "W"]
+Pass 1NT Pass 2H
+Pass 3S Pass Pass
+Pass
+[Play "E"]
+HA H4 H6 H2
+H3 HJ HQ H9
+C2 C3 CQ CA
+SJ S2 S4 SK
+H5 S3 S6 SQ
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "8"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:64.KQ6.96432.QJT KQT87.92.KJT.A84 J.AT8753.Q87.K62 A9532.J4.A5.9753"]
+[Declarer "N"]
+[Contract "4S"]
+[Result "9"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -50"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+Pass 1S 2H 3H
+X 4S Pass Pass
+Pass
+[Play "E"]
+HA H4 H6 H9
+HT HJ HQ H2
+C2 C3 CQ CA
+SJ S2 S4 SQ
+H3 SA S6 S7
+D7 DA D2 DT
+D8 D5 D3 DK
+H5 S3 D4 SK
+DQ S5 D6 DJ
+CK C5 CT C4
+C6 C7 CJ C8
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "9"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:KQ9864.JT83.864. J2.K765.52.QT762 753.9.AKJ3.AK854 AT.AQ42.QT97.J93"]
+[Declarer "N"]
+[Contract "4S"]
+[Result "10"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 420"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "N"]
+Pass Pass 1C Pass
+1S Pass 2D Pass
+2H Pass 2S Pass
+4S Pass Pass Pass
+[Play "E"]
+D5 DA D7 D6
+H5 H9 HA H8
+S2 S3 SA S6
+SJ S5 ST SK
+H6 S7 H2 H3
+C2 CA C3 HT
+C6 CK C9 HJ
+C7 C4 CJ S4
+H7 C5 DT SQ
+CT C8 H4 S9
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "9"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:KQ9864.JT83.864. J2.K765.52.QT762 753.9.AKJ3.AK854 AT.AQ42.QT97.J93"]
+[Declarer "N"]
+[Contract "4S"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 420"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+2S Pass 4S Pass
+Pass Pass
+[Play "E"]
+H6 H9 HA H8
+S2 S3 SA S4
+SJ S5 ST SQ
+H5 S7 H2 H3
+C2 CA C3 HT
+C6 CK C9 HJ
+C7 C4 CJ S6
+D2 DA D7 D4
+CT C5 H4 S8
+D5 DK D9 D8
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "10"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:J942.Q743.KJ.JT7 853.A9.764.85432 AK.KT86.AQ932.AK QT76.J52.T85.Q96"]
+[Declarer "W"]
+[Contract "4H"]
+[Result "11"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS -650"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "E"]
+Pass Pass 2C Pass
+2D Pass 2H Pass
+2S Pass 2NT Pass
+3C Pass 3D Pass
+3H Pass 4D Pass
+4H Pass Pass Pass
+[Play "N"]
+S6 S2 S8 SA
+H2 HQ HA H8
+C6 C7 C5 CA
+D8 DJ D4 D3
+HJ H3 H9 HT
+H5 H4 C3 HK
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "10"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:J942.Q743.KJ.JT7 853.A9.764.85432 AK.KT86.AQ932.AK QT76.J52.T85.Q96"]
+[Declarer "W"]
+[Contract "6NT"]
+[Result "11"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+Pass Pass 2C Pass
+2D Pass 2NT Pass
+4NT Pass 6NT Pass
+Pass Pass
+[Play "N"]
+D5 DK D4 D2
+S6 S2 S3 SA
+H2 HQ HA H6
+C6 C7 C5 CA
+D8 DJ D6 D3
+HJ H3 H9 HT
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "11"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:3.AJ8632.AK83.62 97542.KQ4.Q9.J93 86.97.J754.AT874 AKQJT.T5.T62.KQ5"]
+[Declarer "E"]
+[Contract "3S"]
+[Result "9"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS -140"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "S"]
+1H Pass 1NT 2S
+3H 3S Pass Pass
+Pass
+[Play "S"]
+DA D9 D4 D2
+HA H4 H7 H5
+H8 HQ H9 HT
+S3 S2 S6 SA
+H6 S4 S8 SK
+H2 S5 D5 SQ
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "11"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:3.AJ8632.AK83.62 97542.KQ4.Q9.J93 86.97.J754.AT874 AKQJT.T5.T62.KQ5"]
+[Declarer "S"]
+[Contract "5DX"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+1H Pass Pass 2S
+2NT 4S 5C X
+5D Pass Pass X
+Pass Pass Pass
+[Play "W"]
+S2 S6 ST S3
+D9 D4 D2 DA
+DQ D5 D6 DK
+S7 DJ DT D3
+HQ H7 H5 H2
+C3 CA C5 C2
+H4 H9 HT HA
+HK D7 SJ H3
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "12"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:J98.T54.KQJ432.4 T7532.KJ.97.QJ86 AQ4.963.5.KT9732 K6.AQ872.AT86.A5"]
+[Declarer "S"]
+[Contract "3NT"]
+[Result "8"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS -100"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "W"]
+3D Pass Pass 3NT
+Pass Pass Pass
+[Play "W"]
+DK D7 D5 DA
+C4 C6 C2 CA
+H5 CQ CK C5
+D4 CJ CT S6
+H4 HK H3 H2
+HT HJ H6 HA
+- - - HQ
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "12"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:J98.T54.KQJ432.4 T7532.KJ.97.QJ86 AQ4.963.5.KT9732 K6.AQ872.AT86.A5"]
+[Declarer "S"]
+[Contract "3NT"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 630"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+3D Pass Pass 3NT
+Pass Pass Pass
+[Play "W"]
+DK D7 D5 D6
+DJ D9 H6 DA
+DQ S2 C2 D8
+S8 S3 SA S6
+C4 CQ C9 C5
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "13"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:Q4.Q5432.K6.AQ53 AK83.AJ6.JT8.762 T972.T987.A93.84 J65.K.Q7542.KJT9"]
+[Declarer "E"]
+[Contract "3S"]
+[Result "6"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 300"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "N"]
+1H 1S 3H 3S
+Pass Pass Pass
+[Play "S"]
+HT HK H2 H6
+DA D2 D6 DJ
+C8 C9 CQ C7
+C4 CT CA C6
+D3 D4 DK D8
+S2 CJ C5 C2
+D9 D5 SQ DT
+H7 CK C3 SA
+S7 S5 S4 SK
+H8 D7 H3 HA
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "13"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:Q4.Q5432.K6.AQ53 AK83.AJ6.JT8.762 T972.T987.A93.84 J65.K.Q7542.KJT9"]
+[Declarer "N"]
+[Contract "3H"]
+[Result "9"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 140"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+1H Pass 2H Pass
+Pass 2S 3H Pass
+Pass Pass
+[Play "E"]
+SA S2 S5 S4
+S3 S7 SJ SQ
+D8 DA D2 D6
+C2 C4 C9 CQ
+C6 C8 CT CA
+C7 H7 CJ C3
+DT D3 D4 DK
+S8 H8 CK C5
+H6 H9 HK H2
+DJ D9 DQ H3
+HJ HT D5 H4
+HA S9 D7 H5
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "14"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:T5.K3.KQ8.A86542 A963.T8.7532.KQ7 QJ742.A4.JT964.9 K8.QJ97652.A.JT3"]
+[Declarer "N"]
+[Contract "3H"]
+[Result "10"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 170"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "E"]
+1C Pass 1S 3H
+Pass Pass Pass
+[Play "E"]
+ST S3 S2 SK
+HK H8 H4 H5
+DK D2 DJ DA
+H3 HT HA H2
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "14"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:T5.K3.KQ8.A86542 A963.T8.7532.KQ7 QJ742.A4.JT964.9 K8.QJ97652.A.JT3"]
+[Declarer "N"]
+[Contract "3H"]
+[Result "9"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 140"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+1C Pass 1S 3H
+Pass Pass Pass
+[Play "E"]
+ST SA S2 S8
+H3 H8 HA H2
+CA C7 C9 CJ
+C2 CQ H4 C3
+D8 D2 DJ DA
+HK HT D6 H5
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "15"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:J85.T52.A742.A85 KQ76.87.Q83.KJ43 AT94.J43.KT65.T9 32.AKQ96.J9.Q762"]
+[Declarer "W"]
+[Contract "3NT"]
+[Result "8"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 50"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "S"]
+Pass 1C Pass 1H
+Pass 1S Pass 2D
+Pass 2NT Pass 3NT
+Pass Pass Pass
+[Play "N"]
+D5 D9 DA D3
+DK DJ D2 D8
+DT C2 D4 DQ
+CT C6 CA CJ
+SA S2 S5 SK
+D6 S3 D7 -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "15"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:J85.T52.A742.A85 KQ76.87.Q83.KJ43 AT94.J43.KT65.T9 32.AKQ96.J9.Q762"]
+[Declarer "E"]
+[Contract "3C"]
+[Result "10"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -130"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+Pass Pass Pass 1H
+Pass 1S Pass 2C
+Pass 3C Pass Pass
+Pass
+[Play "S"]
+S5 SK SA S2
+H2 H7 H4 HA
+C5 CK CT C2
+H5 H8 H3 HQ
+C8 CJ C9 C6
+S8 SQ S4 S3
+SJ S6 S9 C7
+HT D3 HJ HK
+CA D8 D5 H9
+DA DQ D6 D9
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "16"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:J82.KQT2.Q63.JT8 T643.A.K84.A9643 75.98643.J972.K5 AKQ9.J75.AT5.Q72"]
+[Declarer "S"]
+[Contract "3NT"]
+[Result "8"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS -50"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "W"]
+Pass 1C Pass 1S
+Pass 2S Pass 3NT
+Pass Pass Pass
+[Play "W"]
+HQ HA - -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "16"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:J82.KQT2.Q63.JT8 T643.A.K84.A9643 75.98643.J972.K5 AKQ9.J75.AT5.Q72"]
+[Declarer "S"]
+[Contract "4S"]
+[Result "11"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 450"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+Pass 1C Pass 1S
+Pass 3H Pass 3NT
+Pass 4H Pass 4S
+Pass Pass Pass
+[Play "W"]
+HK HA H9 H5
+S2 S3 S5 SA
+H2 S4 H3 H7
+S8 S6 S7 SK
+HQ ST H4 HJ
+D3 D4 D2 DA
+SJ D8 H6 SQ
+D6 DK D7 D5
+C8 C3 CK C2
+DQ C4 DJ DT
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "17"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:KT6.AKQ854.K8.43 J.J3.Q7642.AQT95 Q985432.7.AJ53.8 A7.T962.T9.KJ762"]
+[Declarer "S"]
+[Contract "4S"]
+[Result "12"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 480"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "N"]
+1H 2D Pass Pass
+2NT Pass 4S Pass
+Pass Pass
+[Play "W"]
+DT D8 D2 DJ
+H2 HA H3 H7
+H6 HK HJ C8
+SA S6 SJ SQ
+D9 DK - -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "17"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:KT6.AKQ854.K8.43 J.J3.Q7642.AQT95 Q985432.7.AJ53.8 A7.T962.T9.KJ762"]
+[Declarer "S"]
+[Contract "5S"]
+[Result "11"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 450"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "N"]
+1H 2NT 3S 5C
+5S Pass Pass Pass
+[Play "W"]
+C2 C3 CA C8
+DT DK D2 D3
+SA S6 SJ SQ
+D9 D8 DQ DA
+S7 ST C5 S2
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "18"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:J8432.A65.J53.J5 AK.T98743.72.K82 Q5.J2.K964.AQ964 T976.KQ.AQT8.T73"]
+[Declarer "E"]
+[Contract "2S"]
+[Result "6"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 100"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "E"]
+2S Pass Pass Pass
+[Play "S"]
+HT H2 HQ H5
+H3 HJ HK HA
+H7 S5 S6 H6
+SK SQ S7 S2
+D7 D4 DQ D5
+D2 D6 DA D3
+SA D9 D8 DJ
+H9 C4 DT S3
+H4 C6 S9 SJ
+C2 CA C3 C5
+- DK C7 -
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "18"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:J8432.A65.J53.J5 AK.T98743.72.K82 Q5.J2.K964.AQ964 T976.KQ.AQT8.T73"]
+[Declarer "W"]
+[Contract "2D"]
+[Result "6"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "E"]
+Pass Pass 1D Pass
+1S Pass 2C Pass
+2D Pass Pass Pass
+[Play "N"]
+HK HA HT H2
+C3 CJ CK CA
+C7 C5 C2 CQ
+CT D3 C8 C4
+DT D5 D2 D9
+HQ H5 H3 HJ
+ST S2 SA S5
+S9 S3 SK SQ
+D8 H6 H9 D4
+S7 SJ D7 DK
+- - - C6
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "19"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:AT986.J..AKT9653 K32.Q8754.AT63.8 Q7.AKT9.KQ9842.4 J54.632.J75.QJ72"]
+[Declarer "N"]
+[Contract "3NT"]
+[Result "10"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 430"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "S"]
+1C 1H 2D Pass
+2S Pass 3NT Pass
+Pass Pass
+[Play "E"]
+H2 HJ HQ HA
+C2 CT C8 C4
+C7 CA S2 D2
+CJ CK H4 D4
+CQ C3 D3 D8
+S4 S6 SK S7
+D5 S8 DA D9
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "19"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:AT986.J..AKT9653 K32.Q8754.AT63.8 Q7.AKT9.KQ9842.4 J54.632.J75.QJ72"]
+[Declarer "S"]
+[Contract "6S"]
+[Result "11"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS -50"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "S"]
+1C Pass 1D Pass
+2S Pass 3H Pass
+4S Pass 4NT Pass
+5NT Pass 6C Pass
+6S Pass Pass Pass
+[Play "W"]
+H4 HA H6 HJ
+C8 C4 C2 CA
+SK D2 C7 C3
+S3 S7 S4 S6
+S2 SQ S5 S8
+D3 DK D5 S9
+D6 D4 SJ SA
+H5 D8 CJ CK
+DT D9 CQ CT
+*
+
+[Event "#"]
+[Site "#"]
+[Date "2000.07.07"]
+[Board "20"]
+[West "Alper T"]
+[North "Pilipovic M"]
+[East "Uz T"]
+[South "Sasek T"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:AT8543.7.K.AK842 KQ7.K42.A74.QJ73 J6.JT965.J9862.5 92.AQ83.QT53.T96"]
+[Declarer "W"]
+[Contract "3SX"]
+[Result "8"]
+[HomeTeam "Croatia"]
+[Room "Open"]
+[Round "2"]
+[Score "NS 200"]
+[Section "Junior Teams"]
+[Table "2"]
+[VisitTeam "Turkey"]
+[Auction "W"]
+1S 1NT Pass 2C
+3C X 3S X
+Pass Pass Pass
+[Play "N"]
+DA D2 DT DK
+H2 H5 HA H7
+SQ S6 S2 S4
+HK H6 H3 S3
+C3 C5 C6 CA
+C7 SJ C9 C2
+*
+
+[Event "#"]
+[Site "#"]
+[Date "#"]
+[Board "20"]
+[West "Brguljan K"]
+[North "Erdemil P"]
+[East "Zoric V"]
+[South "Erdogan I"]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:AT8543.7.K.AK842 KQ7.K42.A74.QJ73 J6.JT965.J9862.5 92.AQ83.QT53.T96"]
+[Declarer "W"]
+[Contract "3S"]
+[Result "8"]
+[HomeTeam "#"]
+[Room "Closed"]
+[Round "#"]
+[Score "NS 100"]
+[Section "#"]
+[Table "#"]
+[VisitTeam "#"]
+[Auction "W"]
+1S 1NT Pass 2C
+3C X 3S Pass
+Pass Pass
+[Play "N"]
+H2 HJ HA H7
+S7 S6 S9 SA
+C3 C5 C6 CA
+C7 D2 C9 CK
+CJ SJ CT C2
+H4 H5 H3 S3
+CQ D6 D3 C8
+SK H6 S2 S4
+SQ H9 D5 S5
+DA D8 DT DK
+HK HT H8 S8
+*
+

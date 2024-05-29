@@ -6,7 +6,8 @@ Agent that uses the minimax algorithm to choose the best card to play.
 """
 
 import copy
-from typing import Dict, List
+from typing import Dict, List, Tuple
+from agent.assigners.csp_assigner_v2 import CSPAssignerV2
 from agent.card_stats import CardTrick, PlayerPosition, PlayerTurn, Card
 from agent.card_utils import card_to_index, index_to_card
 from agent.game_env import GameEnv, GameState
@@ -91,7 +92,24 @@ class MinimaxAgent(GenericAgent):
     
     def assign_cards(self) -> None:
         unseen_cards, unseen_counts = self.get_unseen_cards()
-        assigned_hands = RandomAssigner.assign(unseen_cards, unseen_counts)
+        player_stats = {}
+        suit_seen = set()
+
+        if self.__contract__.declarer is self.__position__:
+            assigned_hands = RandomAssigner.assign(unseen_cards, unseen_counts)
+        else:
+            for player, num_cards in unseen_counts.items():
+                bided_suit = self.__bided_suit__[player.value]
+                if bided_suit in suit_seen:
+                    bided_suit = None
+                player_stats[player] = (num_cards, bided_suit)
+                suit_seen.add(bided_suit)
+            assigner = CSPAssignerV2(unseen_cards, player_stats, self._shown_out_suits)
+            try:
+                assigned_hands = assigner.assign_cards()
+            except:
+                assigned_hands = RandomAssigner.assign(unseen_cards, unseen_counts)
+
         hidden_players = self.get_hidden_players()
         for player in hidden_players:
             self.__cardsets__[player.value] = assigned_hands[player]
@@ -109,9 +127,10 @@ class MinimaxAgent(GenericAgent):
         game_env = GameEnv(self.__contract__)
         team = [PlayerPosition.NORTH, PlayerPosition.SOUTH]
 
-        def recurse(game_state: GameState, depth: int, root_card: int) -> int:
+        def recurse(game_state: GameState, depth: int, root_card: int, 
+                    alpha: float, beta: float) -> Tuple[int, float]:
             if game_env.is_end(game_state):
-                return (game_env.get_scores(), root_card)
+                return (game_env.get_scores(game_state), root_card)
             if depth == 0:
                 return (game_env.evaluation(game_state), root_card)
             
@@ -122,17 +141,23 @@ class MinimaxAgent(GenericAgent):
                 for action in actions:
                     new_state = game_env.move_to_next_player(game_state, action)
                     new_root_card = action if root_card is None else root_card
-                    val = recurse(new_state, depth, new_root_card)
+                    val = recurse(new_state, depth, new_root_card, alpha, beta)
                     best_val = max(best_val, val, key=lambda x: x[0])
+                    if best_val[0] >= beta:
+                        break
+                    alpha = max(alpha, best_val[0])
                 return best_val
             else:
                 best_val = (float('inf'), None)
                 for action in actions:
                     new_state = game_env.move_to_next_player(game_state, action)
                     new_root_card = action if root_card is None else root_card
-                    val = recurse(new_state, depth, new_root_card)
+                    val = recurse(new_state, depth, new_root_card, alpha, beta)
                     best_val = min(best_val, val, key=lambda x: x[0])
+                    if best_val[0] <= alpha:
+                        break
+                    beta = min(beta, best_val[0])
                 return best_val
 
-        optimal = recurse(cur_states, 1, None)
+        optimal = recurse(cur_states, 1, None, float('-inf'), float('inf'))
         return optimal[1]
