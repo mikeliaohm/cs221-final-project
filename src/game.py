@@ -8,6 +8,9 @@ from typing import List, Tuple
 from agent.card_stats import CardSuit
 import agent.conf
 from agent.evaluator import AgentEvaluator
+from agent.minimax_agent import MinimaxAgent
+from agent.minimax_bayes_agent import MinimaxBayesAgent
+from agent.minimax_opt_agent import MinimaxOptAgent
 
 # Set logging level to suppress warnings
 logging.getLogger().setLevel(logging.ERROR)
@@ -177,7 +180,9 @@ class Driver:
             'vuln': [self.vuln_ns, self.vuln_ew],
             'hand': result_list,
             'name': self.name,
-            'board_no' : self.board_number
+            'board_no' : self.board_number,
+            'agent': f"{agent_type.__name__}",
+            "filename": self.log_file_name,
         }))
 
         self.bid_responses = []
@@ -891,6 +896,7 @@ async def simulate(random: bool, base_path: str, board_file: str, boardno: int,
             auction = boards[board_no]['auction']
             print("\n===============================")
             print(f"Board: {board_no + 1} {rdeal}")
+            print(f"Agent: {agent_type.__name__}\nfilename: {board_file}")
             print("===============================\n")
             contract = boards[board_no].get('contract', None)
             declarer = boards[board_no].get('declarer', None)
@@ -958,10 +964,16 @@ async def main():
     global agent_type
     if args.agent == "oracle":
         agent_type = TheOracle
-    elif args.agent == "base":
+    elif args.agent == "baseline":
         agent_type = NaiveAgent
     elif args.agent == "human":
         agent_type = HumanAgent
+    elif args.agent == "minimax":
+        agent_type = MinimaxAgent
+    elif args.agent == "minimaxbayes":
+        agent_type = MinimaxBayesAgent
+    elif args.agent == "minimaxopt":
+        agent.type = MinimaxOptAgent
     elif args.agent is not None:
         raise ValueError(f"Unknown agent type {args.agent}")
     else:

@@ -63,7 +63,7 @@ class TestCSPAssignerV2ContractEast(unittest.TestCase):
 
     def test_honor_cards_in_suit_factors(self):
         self.assigner.add_prob_C()
-        self.assigner.add_prob_H_given_C()
+        self.assigner.add_prob_H_given_C_and_evidence()
         num_honor_cards_in_suit = {CardSuit.SPADES: 2, CardSuit.HEARTS: 1, 
                                    CardSuit.DIAMONDS: 3, CardSuit.CLUBS: 1}
         for suit, num_cards in self.assigner._honor_cards_in_suit.items():
@@ -77,14 +77,11 @@ class TestCSPAssignerV2ContractEast(unittest.TestCase):
                     accm_prob = 0
                     for val_prime, prob_prime in prob.items():
                         self.assertGreaterEqual(prob_prime, 0)
-                        self.assertLessEqual(prob_prime, 1)
+                        # This is no longer a probability since we multiply it by the weights of evidence
+                        # self.assertLessEqual(prob_prime, 1) 
                         accm_prob += prob_prime
-                    self.assertAlmostEqual(accm_prob, 1)
-
-    def test_inference(self):
-        self.assigner.add_constraints()
-        self.assertEqual(self.assigner._csp.binaryFactors['E_H_BIDDING']['E_H_Hon'][1][0], 36 + 1)
-        self.assertEqual(self.assigner._csp.binaryFactors['E_H_BIDDING']['E_H'][1][1], 9 + 1)
+                    # This is no longer a probability since we multiply it by the weights of evidence
+                    # self.assertAlmostEqual(accm_prob, 1)
 
 if __name__ == '__main__':
     unittest.main()

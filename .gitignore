@@ -94,3 +94,4 @@ UCBC 2024/MvsM/models/1 Mill SAYC.ben
 
 # Ignore the logs of game result
 src/agent/logs/
+src/agent/logs*/

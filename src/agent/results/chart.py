@@ -7,24 +7,33 @@ with open('agent/results/results.json', 'r') as file:
 
 # Define a mapping from long names to shorter names
 name_mapping = {
-    "minimax_d2_tricks": "minimax_d2",
     "oracle_tricks": "oracle",
     "baseline_tricks": "baseline",
-    "minimax_d1_csp_tricks": "minimax_d1_csp",
     "minimax_d1_tricks": "minimax_d1",
-    "minimax_d1_csp_shown_out_rand_declarer_tricks": "minimax_d1_csp_rand_dec",
-    "minimax_d1_csp_shown_out_tricks": "minimax_d1_csp_shown",
-    "minimax_d2_score": "minimax_d2",
+    "minimax_d2_tricks": "minimax_d2",
+    "minimax_d1_csp_tricks": "minimax_d1_bid",
+    "minimax_d1_csp_shown_out_tricks": "minimax_d1_bid_void",
+    "minimax_d1_csp_shown_out_rand_declarer_tricks": "minimax_d1_opt",
+    "minimax_d1_bayes_tricks": "minimax_d1_bayes",
+    "minimax_d2_bayes_tricks": "minimax_d2_bayes",
+    "minimax_d1_opt_tricks": "minimax_d1_opt",
+    "minimax_d2_opt_tricks": "minimax_d2_opt",
     "oracle_score": "oracle",
     "baseline_score": "baseline",
-    "minimax_d1_csp_score": "minimax_d1_csp",
     "minimax_d1_score": "minimax_d1",
-    "minimax_d1_csp_shown_out_rand_declarer_score": "minimax_d1_csp_rand_dec",
-    "minimax_d1_csp_shown_out_score": "minimax_d1_csp_shown"
+    "minimax_d2_score": "minimax_d2",
+    "minimax_d1_csp_score": "minimax_d1_bid",
+    "minimax_d1_csp_shown_out_score": "minimax_d1_d1_bid_void",
+    "minimax_d1_csp_shown_out_rand_declarer_score": "minimax_d1_opt",
+    "minimax_d1_bayes_score": "minimax_d1_bayes",
+    "minimax_d2_bayes_score": "minimax_d2_bayes",
+    "minimax_d1_opt_score": "minimax_d1_opt",
+    "minimax_d2_opt_score": "minimax_d2_opt"
 }
 
 # Define the custom order for the bars
-custom_order = ["oracle", "baseline", "minimax_d1", "minimax_d2", "minimax_d1_csp", "minimax_d1_csp_shown", "minimax_d1_csp_rand_dec"]
+# custom_order = ["oracle", "baseline", "minimax_d1", "minimax_d1_bayes", "minimax_d1_opt"]
+custom_order = ["minimax_d1", "minimax_d2", "minimax_d1_bayes", "minimax_d2_bayes", "minimax_d1_opt", "minimax_d2_opt"]
 
 # Function to map long names to short names and order them
 def map_and_order_names(data):
@@ -39,7 +48,7 @@ def plot_bar_chart(data, title, ylabel):
     values = list(data.values())
 
     fig, ax = plt.subplots()
-    bars = ax.bar(agents, values, color='blue')
+    bars = ax.bar(agents, values, color='lightblue')
 
     ax.set_xlabel('Agents')
     ax.set_ylabel(ylabel)
@@ -58,13 +67,13 @@ def plot_bar_chart(data, title, ylabel):
 plot_bar_chart(results["Total Tricks Difference"], "Total Tricks Difference Against Oracle", "Total Tricks Difference")
 
 # Plot Total Scores Difference
-plot_bar_chart(results["Total Scores Difference"], "Total Scores Difference Against Oracle", "Total Scores Difference")
+# plot_bar_chart(results["Total Scores Difference"], "Total Scores Difference Against Oracle", "Total Scores Difference")
 
 # Plot Average Tricks Difference
 plot_bar_chart(results["Average Tricks Difference"], "Average Tricks Difference Against Oracle", "Average Tricks Difference")
 
 # Plot Average Scores Difference
-plot_bar_chart(results["Average Scores Difference"], "Average Scores Difference Against Oracle", "Average Scores Difference")
+# plot_bar_chart(results["Average Scores Difference"], "Average Scores Difference Against Oracle", "Average Scores Difference")
 
 # Function to plot bar charts by declarer
 def plot_bar_chart_by_declarer(data, title, ylabel):
@@ -77,7 +86,7 @@ def plot_bar_chart_by_declarer(data, title, ylabel):
         values = [data[declarer][agent] for agent in agents]
         
         fig, ax = plt.subplots()
-        bars = ax.bar(x, values, color='blue')
+        bars = ax.bar(x, values, color='lightblue')
         ax.set_xticks(x)
         ax.set_xticklabels(agents)
 
@@ -98,10 +107,10 @@ def plot_bar_chart_by_declarer(data, title, ylabel):
 plot_bar_chart_by_declarer(results["Total Tricks Difference by Declarer"], "Total Tricks Difference Against Oracle", "Total Tricks Difference")
 
 # Plot Total Scores Difference by Declarer
-plot_bar_chart_by_declarer(results["Total Scores Difference by Declarer"], "Total Scores Difference Against Oracle", "Total Scores Difference")
+# plot_bar_chart_by_declarer(results["Total Scores Difference by Declarer"], "Total Scores Difference Against Oracle", "Total Scores Difference")
 
 # Plot Average Tricks Difference by Declarer
-plot_bar_chart_by_declarer(results["Average Tricks Difference by Declarer"], "Average Tricks Difference Against Oracle", "Average Tricks Difference")
+# plot_bar_chart_by_declarer(results["Average Tricks Difference by Declarer"], "Average Tricks Difference Against Oracle", "Average Tricks Difference")
 
 # Plot Average Scores Difference by Declarer
-plot_bar_chart_by_declarer(results["Average Scores Difference by Declarer"], "Average Scores Difference Against Oracle", "Average Scores Difference")
+# plot_bar_chart_by_declarer(results["Average Scores Difference by Declarer"], "Average Scores Difference Against Oracle", "Average Scores Difference")

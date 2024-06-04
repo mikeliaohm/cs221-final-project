@@ -71,8 +71,7 @@ class CSPAssignerV2:
         Add the constraints to the CSP problem.
         """
         self.add_prob_C()
-        self.add_prob_H_given_C()
-        self.add_evidence()
+        self.add_prob_H_given_C_and_evidence()
         self.add_shown_out()
 
     def add_prob_C(self) -> None:
@@ -95,11 +94,44 @@ class CSPAssignerV2:
 
             self._csp.add_unary_factor(f"{player}_{suit}", prob_C)
 
-    def add_prob_H_given_C(self) -> None:
+    def add_prob_H_given_C_and_evidence(self) -> None:
         """
-        Add factors of weights of assigning honor cards to the Players given num_cards of suit.
-        These are binary factors.
+        Add factors that computes probability of num honor cards given num_cards in the suit.
+        These are binary factors. Then, we multiply the cond. prob. by weights of 
+        likelihood of the player makes a bid in a suit based on H and C.
+        
+        These magic numbers are compiled results from dataset in agent/boards/bids
+        The script used to parse the data in bids: assigners/parse_bid.py
+        Each (H, C) tuple maps to the count of occurrences from the data.
         """
+        SMOOTH_FACTOR = 1
+        BIDDING_TABLE = {
+            (0, 1): 5,
+            (0, 2): 3,
+            (0, 3): 11,
+            (0, 4): 9,
+            (0, 5): 5,
+            (0, 6): 3,
+            (1, 1): 4,
+            (1, 2): 12,
+            (1, 3): 21,
+            (1, 4): 22,
+            (1, 5): 41,
+            (1, 6): 12,
+            (1, 7): 2,
+            (2, 2): 6,
+            (2, 4): 19,
+            (2, 5): 30,
+            (2, 6): 18,
+            (2, 7): 7,
+            (3, 4): 5,
+            (3, 5): 14,
+            (3, 6): 23,
+            (3, 7): 2,
+            (4, 5): 2,
+            (4, 6): 1
+        }
+        
         for player, (num_cards_to_assign, suit) in self._player_stats.items():
             if suit is None:
                 continue
@@ -116,44 +148,11 @@ class CSPAssignerV2:
                     denominator = math.comb(num_cards_in_suit, num_cards)
                 except ValueError:
                     return 0
-                return numerator / denominator
+                return numerator / denominator * (BIDDING_TABLE.get((num_cards, num_honor), 0) + SMOOTH_FACTOR)
             
-            self._csp.add_binary_factor(f"{player}_{suit}_Hon", f"{player}_{suit}", prob_H_given_C)
-
-    def add_evidence(self) -> None:
-        """        
-        Some magic numbers for the weights of the factors based on the 
-        compiled results from dataset in agent/boards/bids
-        The script used to parse the data in bids: assigners/parse_bid.py
-        """
-        HONOR_CARDS_COUNT = {
-            0: 36,
-            1: 114, 
-            2: 80, 
-            3: 44,
-            4: 3
-        }
-
-        NUM_CARDS_COUNT = {
-            1: 9,
-            2: 21,
-            3: 32,
-            4: 55,
-            5: 92, 
-            6: 57,
-            7: 11
-        }
-
-        for player, (_, suit) in self._player_stats.items():
-            if suit is None:
-                continue
-            self._csp.add_variable(f"{player}_{suit}_BIDDING", [0, 1])
-            self._csp.add_binary_factor(f"{player}_{suit}_BIDDING", 
-                                        f"{player}_{suit}_Hon",
-                                        lambda x, y: x * (HONOR_CARDS_COUNT.get(y, 0) + 1))
-            self._csp.add_binary_factor(f"{player}_{suit}_BIDDING", 
-                                        f"{player}_{suit}",
-                                        lambda x, y: x * (NUM_CARDS_COUNT.get(y, 0) + 1))
+            self._csp.add_binary_factor(f"{player}_{suit}_Hon", 
+                                        f"{player}_{suit}", 
+                                        prob_H_given_C)
 
     def add_shown_out(self) -> None:
         for player, suits in self._shown_out.items():

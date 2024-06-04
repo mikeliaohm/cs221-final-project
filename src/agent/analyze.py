@@ -71,7 +71,7 @@ def main(directory: str):
         json_data = load_json_files(files)
         performance_data = extract_performance_data(json_data)
         # Dump the performance data to a JSON file
-        with open(f'{database}_performance.json', 'w') as f:
+        with open(f'agent/logs/summary/{database}_performance.json', 'w') as f:
             json.dump(performance_data, f, indent=4)
 
         # compare_agents(performance_data)

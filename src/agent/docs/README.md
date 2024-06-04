@@ -6,14 +6,20 @@ To run a game setting for a specific board from .pbn file.
 
 ```bash
 # This script will run the simulation until all boards have been played
-python game.py --boardfile agent/boards/declarer.pbn --playonly True --boardno 1 --auto True
+python game.py --boardfile agent/boards/declarer.pbn --playonly True --auto True
 
 # Simulate all boards in a tournament record
-python game.py --boardfile agent/boards/eyc00pbn/A1A10101.PBN --playonly True --boardno 1 --auto True
+python game.py --boardfile agent/boards/eyc00pbn/A1A10101.PBN --playonly True --auto True
 
 # Simulate all boards in a folder and log the results
-python game.py --boarddir agent/boards/simulate --playonly True --boardno 1 --auto True --log True
+python game.py --boarddir agent/boards/simulate --playonly True --auto True --log True
 ```
+
+To select the various agents to run the simulator, use --agents with the following options.
+
+1. Baseline -> "baseline"
+2. Oracle -> "oracle"
+3. Minimax -> "minimax"
 
 ## Tests
 
@@ -47,11 +53,17 @@ First, move the logs from the game simulation from each of the agents to be comp
 Then run the following command to compile the results into two separate files that group together the performances of the three agents, baseline, minimax, and oracle.
 
 ```python
-# Compile data from the game results from individual files
+# Compile individual reports from different agents
 python agent/analyze.py --dir agent/logs/reports
 
-# Aggregate the performances differences between oracle and all other agents
-python agent/performance.py
+# Not all agents have run the games in this file so we will skip it
+rm agent/logs/summary/A1A10303.json_performance.json
+
+# Compile the performance report into a results.json file
+python agent/performances.py
+
+# Plot the results
+python agent/results/chart.py
 ```
 
 The pbn file has the format looks like the following.

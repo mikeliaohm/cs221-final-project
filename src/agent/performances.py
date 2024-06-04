@@ -100,19 +100,14 @@ def main(directory):
         "Average Scores Difference by Declarer": avg_scores_by_declarer
     }
 
+    print("Total games:", total_game_count)
+    for key, value in count_by_declarer.items():
+        print(f"Number of games for declarer {key}: {value}")
+
     output_file = "agent/results/results.json"
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, 'w') as file:
         json.dump(results, file)
-
-    print("Average Tricks Difference:")
-    print(avg_tricks_result)
-    print("\nAverage Scores Difference:")
-    print(avg_scores_result)
-    print("\nAverage Tricks Difference by Declarer:")
-    print(avg_tricks_by_declarer)
-    print("\nAverage Scores Difference by Declarer:")
-    print(avg_scores_by_declarer)
 
 if __name__ == "__main__":
     main("agent/logs/summary/")

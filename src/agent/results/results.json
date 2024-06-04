@@ -1,154 +1,170 @@
 {
   "Total Tricks Difference": {
-    "minimax_d2_tricks": -65,
+    "minimax_d2_tricks": -131,
     "oracle_tricks": 0,
-    "baseline_tricks": -73,
-    "minimax_d1_csp_tricks": -62,
-    "minimax_d1_tricks": -65,
-    "minimax_d1_csp_shown_out_rand_declarer_tricks": -52,
-    "minimax_d1_csp_shown_out_tricks": -62
+    "minimax_d1_opt_tricks": -112,
+    "baseline_tricks": -158,
+    "minimax_d2_opt_tricks": -112,
+    "minimax_d2_bayes_tricks": -120,
+    "minimax_d1_tricks": -124,
+    "minimax_d1_bayes_tricks": -123
   },
   "Total Scores Difference": {
-    "minimax_d2_score": -1920,
+    "minimax_d2_score": -3860,
     "oracle_score": 0,
-    "baseline_score": -2130,
-    "minimax_d1_csp_score": -1820,
-    "minimax_d1_score": -1920,
-    "minimax_d1_csp_shown_out_rand_declarer_score": -1490,
-    "minimax_d1_csp_shown_out_score": -1790
+    "minimax_d1_opt_score": -3290,
+    "baseline_score": -4630,
+    "minimax_d2_opt_score": -3250,
+    "minimax_d2_bayes_score": -3520,
+    "minimax_d1_score": -3580,
+    "minimax_d1_bayes_score": -3610
   },
   "Average Tricks Difference": {
-    "minimax_d2_tricks": -1.2037037037037037,
+    "minimax_d2_tricks": -1.1592920353982301,
     "oracle_tricks": 0.0,
-    "baseline_tricks": -1.3518518518518519,
-    "minimax_d1_csp_tricks": -1.1481481481481481,
-    "minimax_d1_tricks": -1.2037037037037037,
-    "minimax_d1_csp_shown_out_rand_declarer_tricks": -0.9629629629629629,
-    "minimax_d1_csp_shown_out_tricks": -1.1481481481481481
+    "minimax_d1_opt_tricks": -0.9911504424778761,
+    "baseline_tricks": -1.3982300884955752,
+    "minimax_d2_opt_tricks": -0.9911504424778761,
+    "minimax_d2_bayes_tricks": -1.0619469026548674,
+    "minimax_d1_tricks": -1.0973451327433628,
+    "minimax_d1_bayes_tricks": -1.0884955752212389
   },
   "Average Scores Difference": {
-    "minimax_d2_score": -35.55555555555556,
+    "minimax_d2_score": -34.15929203539823,
     "oracle_score": 0.0,
-    "baseline_score": -39.44444444444444,
-    "minimax_d1_csp_score": -33.7037037037037,
-    "minimax_d1_score": -35.55555555555556,
-    "minimax_d1_csp_shown_out_rand_declarer_score": -27.59259259259259,
-    "minimax_d1_csp_shown_out_score": -33.148148148148145
+    "minimax_d1_opt_score": -29.115044247787612,
+    "baseline_score": -40.97345132743363,
+    "minimax_d2_opt_score": -28.761061946902654,
+    "minimax_d2_bayes_score": -31.150442477876105,
+    "minimax_d1_score": -31.68141592920354,
+    "minimax_d1_bayes_score": -31.946902654867255
   },
   "Total Tricks Difference by Declarer": {
     "E": {
-      "minimax_d2_tricks": -12,
+      "minimax_d2_tricks": -21,
       "oracle_tricks": 0,
-      "baseline_tricks": -13,
-      "minimax_d1_csp_tricks": -10,
-      "minimax_d1_tricks": -10,
-      "minimax_d1_csp_shown_out_rand_declarer_tricks": -5,
-      "minimax_d1_csp_shown_out_tricks": -10
+      "minimax_d1_opt_tricks": -15,
+      "baseline_tricks": -29,
+      "minimax_d2_opt_tricks": -25,
+      "minimax_d2_bayes_tricks": -23,
+      "minimax_d1_tricks": -28,
+      "minimax_d1_bayes_tricks": -21
     },
     "S": {
-      "minimax_d2_tricks": -34,
+      "minimax_d2_tricks": -84,
       "oracle_tricks": 0,
-      "baseline_tricks": -39,
-      "minimax_d1_csp_tricks": -29,
-      "minimax_d1_tricks": -33,
-      "minimax_d1_csp_shown_out_rand_declarer_tricks": -24,
-      "minimax_d1_csp_shown_out_tricks": -31
+      "minimax_d1_opt_tricks": -71,
+      "baseline_tricks": -100,
+      "minimax_d2_opt_tricks": -62,
+      "minimax_d2_bayes_tricks": -70,
+      "minimax_d1_tricks": -63,
+      "minimax_d1_bayes_tricks": -74
     },
     "W": {
-      "minimax_d2_tricks": -19,
+      "minimax_d2_tricks": -26,
       "oracle_tricks": 0,
-      "baseline_tricks": -21,
-      "minimax_d1_csp_tricks": -23,
-      "minimax_d1_tricks": -22,
-      "minimax_d1_csp_shown_out_rand_declarer_tricks": -23,
-      "minimax_d1_csp_shown_out_tricks": -21
+      "minimax_d1_opt_tricks": -26,
+      "baseline_tricks": -29,
+      "minimax_d2_opt_tricks": -25,
+      "minimax_d2_bayes_tricks": -27,
+      "minimax_d1_tricks": -33,
+      "minimax_d1_bayes_tricks": -28
     }
   },
   "Total Scores Difference by Declarer": {
     "E": {
-      "minimax_d2_score": -360,
+      "minimax_d2_score": -620,
       "oracle_score": 0,
-      "baseline_score": -410,
-      "minimax_d1_csp_score": -330,
-      "minimax_d1_score": -330,
-      "minimax_d1_csp_shown_out_rand_declarer_score": -160,
-      "minimax_d1_csp_shown_out_score": -290
+      "minimax_d1_opt_score": -460,
+      "baseline_score": -880,
+      "minimax_d2_opt_score": -730,
+      "minimax_d2_bayes_score": -700,
+      "minimax_d1_score": -800,
+      "minimax_d1_bayes_score": -650
     },
     "S": {
-      "minimax_d2_score": -1010,
+      "minimax_d2_score": -2500,
       "oracle_score": 0,
-      "baseline_score": -1140,
-      "minimax_d1_csp_score": -830,
-      "minimax_d1_score": -970,
-      "minimax_d1_csp_shown_out_rand_declarer_score": -690,
-      "minimax_d1_csp_shown_out_score": -890
+      "minimax_d1_opt_score": -2100,
+      "baseline_score": -2950,
+      "minimax_d2_opt_score": -1820,
+      "minimax_d2_bayes_score": -2070,
+      "minimax_d1_score": -1860,
+      "minimax_d1_bayes_score": -2180
     },
     "W": {
-      "minimax_d2_score": -550,
+      "minimax_d2_score": -740,
       "oracle_score": 0,
-      "baseline_score": -580,
-      "minimax_d1_csp_score": -660,
-      "minimax_d1_score": -620,
-      "minimax_d1_csp_shown_out_rand_declarer_score": -640,
-      "minimax_d1_csp_shown_out_score": -610
+      "minimax_d1_opt_score": -730,
+      "baseline_score": -800,
+      "minimax_d2_opt_score": -700,
+      "minimax_d2_bayes_score": -750,
+      "minimax_d1_score": -920,
+      "minimax_d1_bayes_score": -780
     }
   },
   "Average Tricks Difference by Declarer": {
     "E": {
-      "minimax_d2_tricks": -0.6666666666666666,
+      "minimax_d2_tricks": -0.6176470588235294,
       "oracle_tricks": 0.0,
-      "baseline_tricks": -0.7222222222222222,
-      "minimax_d1_csp_tricks": -0.5555555555555556,
-      "minimax_d1_tricks": -0.5555555555555556,
-      "minimax_d1_csp_shown_out_rand_declarer_tricks": -0.2777777777777778,
-      "minimax_d1_csp_shown_out_tricks": -0.5555555555555556
+      "minimax_d1_opt_tricks": -0.4411764705882353,
+      "baseline_tricks": -0.8529411764705882,
+      "minimax_d2_opt_tricks": -0.7352941176470589,
+      "minimax_d2_bayes_tricks": -0.6764705882352942,
+      "minimax_d1_tricks": -0.8235294117647058,
+      "minimax_d1_bayes_tricks": -0.6176470588235294
     },
     "S": {
-      "minimax_d2_tricks": -2.4285714285714284,
+      "minimax_d2_tricks": -2.0,
       "oracle_tricks": 0.0,
-      "baseline_tricks": -2.7857142857142856,
-      "minimax_d1_csp_tricks": -2.0714285714285716,
-      "minimax_d1_tricks": -2.357142857142857,
-      "minimax_d1_csp_shown_out_rand_declarer_tricks": -1.7142857142857142,
-      "minimax_d1_csp_shown_out_tricks": -2.2142857142857144
+      "minimax_d1_opt_tricks": -1.6904761904761905,
+      "baseline_tricks": -2.380952380952381,
+      "minimax_d2_opt_tricks": -1.4761904761904763,
+      "minimax_d2_bayes_tricks": -1.6666666666666667,
+      "minimax_d1_tricks": -1.5,
+      "minimax_d1_bayes_tricks": -1.7619047619047619
     },
     "W": {
-      "minimax_d2_tricks": -0.8636363636363636,
+      "minimax_d2_tricks": -0.7027027027027027,
       "oracle_tricks": 0.0,
-      "baseline_tricks": -0.9545454545454546,
-      "minimax_d1_csp_tricks": -1.0454545454545454,
-      "minimax_d1_tricks": -1.0,
-      "minimax_d1_csp_shown_out_rand_declarer_tricks": -1.0454545454545454,
-      "minimax_d1_csp_shown_out_tricks": -0.9545454545454546
+      "minimax_d1_opt_tricks": -0.7027027027027027,
+      "baseline_tricks": -0.7837837837837838,
+      "minimax_d2_opt_tricks": -0.6756756756756757,
+      "minimax_d2_bayes_tricks": -0.7297297297297297,
+      "minimax_d1_tricks": -0.8918918918918919,
+      "minimax_d1_bayes_tricks": -0.7567567567567568
     }
   },
   "Average Scores Difference by Declarer": {
     "E": {
-      "minimax_d2_score": -20.0,
+      "minimax_d2_score": -18.235294117647058,
       "oracle_score": 0.0,
-      "baseline_score": -22.77777777777778,
-      "minimax_d1_csp_score": -18.333333333333332,
-      "minimax_d1_score": -18.333333333333332,
-      "minimax_d1_csp_shown_out_rand_declarer_score": -8.88888888888889,
-      "minimax_d1_csp_shown_out_score": -16.11111111111111
+      "minimax_d1_opt_score": -13.529411764705882,
+      "baseline_score": -25.88235294117647,
+      "minimax_d2_opt_score": -21.470588235294116,
+      "minimax_d2_bayes_score": -20.58823529411765,
+      "minimax_d1_score": -23.529411764705884,
+      "minimax_d1_bayes_score": -19.11764705882353
     },
     "S": {
-      "minimax_d2_score": -72.14285714285714,
+      "minimax_d2_score": -59.523809523809526,
       "oracle_score": 0.0,
-      "baseline_score": -81.42857142857143,
-      "minimax_d1_csp_score": -59.285714285714285,
-      "minimax_d1_score": -69.28571428571429,
-      "minimax_d1_csp_shown_out_rand_declarer_score": -49.285714285714285,
-      "minimax_d1_csp_shown_out_score": -63.57142857142857
+      "minimax_d1_opt_score": -50.0,
+      "baseline_score": -70.23809523809524,
+      "minimax_d2_opt_score": -43.333333333333336,
+      "minimax_d2_bayes_score": -49.285714285714285,
+      "minimax_d1_score": -44.285714285714285,
+      "minimax_d1_bayes_score": -51.904761904761905
     },
     "W": {
-      "minimax_d2_score": -25.0,
+      "minimax_d2_score": -20.0,
       "oracle_score": 0.0,
-      "baseline_score": -26.363636363636363,
-      "minimax_d1_csp_score": -30.0,
-      "minimax_d1_score": -28.181818181818183,
-      "minimax_d1_csp_shown_out_rand_declarer_score": -29.09090909090909,
-      "minimax_d1_csp_shown_out_score": -27.727272727272727
+      "minimax_d1_opt_score": -19.72972972972973,
+      "baseline_score": -21.62162162162162,
+      "minimax_d2_opt_score": -18.91891891891892,
+      "minimax_d2_bayes_score": -20.27027027027027,
+      "minimax_d1_score": -24.864864864864863,
+      "minimax_d1_bayes_score": -21.08108108108108
     }
   }
 }
